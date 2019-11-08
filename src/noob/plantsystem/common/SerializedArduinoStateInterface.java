@@ -41,4 +41,6 @@ public interface SerializedArduinoStateInterface {
     public void setTargetUpperChamberTemperature(float arg);
     public float getTargetLowerChamberTemperature();
     public void setTargetLowerChamberTemperature(float arg);
+    public int getTargetCO2PPM();
+    public void setTargetCO2PPM(int arg);
 }

@@ -12,187 +12,167 @@ import java.io.Serializable;
  * @author noob
  */
 public class SerializedArduinoState implements SerializedArduinoStateInterface, Serializable {
- 
+
     @Override
-    public long getUID()
-        {
-            return uid;
-        }
-        
+    public long getUID() {
+        return uid;
+    }
+
     @Override
-    public void setUID(long arg)
-    {
+    public void setUID(long arg) {
         uid = arg;
     }
+
     @Override
-    public String getIP()
-    {
+    public String getIP() {
         return ip;
     }
-    
+
     @Override
-    public void setIP(String arg)
-    {
+    public void setIP(String arg) {
         ip = arg;
     }
-    
+
     @Override
-    public int getMistingInterval()
-    {
+    public int getMistingInterval() {
         return mistingInterval;
     }
-    
+
     @Override
-    public void setMistingInterval(int arg)
-    {
+    public void setMistingInterval(int arg) {
         mistingInterval = arg;
     }
-    
+
     @Override
-    public int getStatusUpdatePushInterval()
-    {
+    public int getStatusUpdatePushInterval() {
         return statusUpdatePushInterval;
     }
-    
+
     @Override
-    public void setStatusUpdatePushInterval(int arg)
-    {
+    public void setStatusUpdatePushInterval(int arg) {
         statusUpdatePushInterval = arg;
     }
-    
+
     @Override
-    public float getMinWaterLevel()
-    {
+    public float getMinWaterLevel() {
         return minWaterLevel;
     }
-    
+
     @Override
-    public void setMinWaterLevel(float arg)
-    {
+    public void setMinWaterLevel(float arg) {
         minWaterLevel = arg;
     }
-    
+
     @Override
-    public float getMaxWaterLevel()
-    {
+    public float getMaxWaterLevel() {
         return maxWaterLevel;
     }
-    
+
     @Override
-    public void setMaxWaterLevel(float arg)
-    {
+    public void setMaxWaterLevel(float arg) {
         maxWaterLevel = arg;
     }
-    
+
     @Override
-    public float getMinNutrientSolutionLevel()
-    {
+    public float getMinNutrientSolutionLevel() {
         return minNutrientSolutionLevel;
     }
-    
+
     @Override
-    public void setMinNutrientSolutionLevel(float arg)
-    {
+    public void setMinNutrientSolutionLevel(float arg) {
         minNutrientSolutionLevel = arg;
     }
-    
+
     @Override
-    public float getMaxNutrientSolutionLevel()
-    {
+    public float getMaxNutrientSolutionLevel() {
         return maxNutrientSolutionLevel;
     }
-    
+
     @Override
-    public void setMaxNutrientSolutionLevel(float arg)
-    {
+    public void setMaxNutrientSolutionLevel(float arg) {
         maxNutrientSolutionLevel = arg;
     }
-    
+
     @Override
-    public int getNutrientsPPM()
-    {
+    public int getNutrientsPPM() {
         return nutrientsPPM;
     }
-    
+
     @Override
-    public void setNutrientsPPM(int arg)
-    {
+    public void setNutrientsPPM(int arg) {
         nutrientsPPM = arg;
     }
-    
+
     @Override
-    public double getNutrientSolutionRatio()
-    {
+    public double getNutrientSolutionRatio() {
         return nutrientSolutionRatio;
     }
-    
+
     @Override
-    public void setNutrientSolutionRatio(double arg)
-    {
+    public void setNutrientSolutionRatio(double arg) {
         nutrientSolutionRatio = arg;
     }
-    
+
     @Override
-    public long getLightsOnTime()
-    {
+    public long getLightsOnTime() {
         return lightsOnTime;
     }
-    
+
     @Override
-    public void setLightsOnTime(long arg)
-    {
+    public void setLightsOnTime(long arg) {
         lightsOnTime = arg;
     }
-    
+
     @Override
-    public long getLightsOffTime()
-    {
+    public long getLightsOffTime() {
         return lightsOffTime;
     }
-    
+
     @Override
-    public void setLightsOffTime(long arg)
-    {
+    public void setLightsOffTime(long arg) {
         lightsOffTime = arg;
     }
-    
+
     @Override
-    public float getTargetUpperChamberHumidity()
-    {
+    public float getTargetUpperChamberHumidity() {
         return lightsOffTime;
     }
-    
+
     @Override
-    public void setTargetUpperChamberHumidity(float arg)
-    {
+    public void setTargetUpperChamberHumidity(float arg) {
         targetUpperChamberHumidity = arg;
     }
-    
+
     @Override
-    public float getTargetUpperChamberTemperature()
-    {
+    public float getTargetUpperChamberTemperature() {
         return targetUpperChamberTemperature;
     }
-    
+
     @Override
-    public void setTargetUpperChamberTemperature(float arg)
-    {
+    public void setTargetUpperChamberTemperature(float arg) {
         targetUpperChamberTemperature = arg;
     }
-    
+
     @Override
-    public float getTargetLowerChamberTemperature()
-    {
+    public float getTargetLowerChamberTemperature() {
         return targetLowerChamberTemperature;
     }
-    
+
     @Override
-    public void setTargetLowerChamberTemperature(float arg) 
-    {
+    public void setTargetLowerChamberTemperature(float arg) {
         targetLowerChamberTemperature = arg;
     }
+
+    @Override
+    public int getTargetCO2PPM() {
+        return targetCO2PPM;
+    }
     
- 
+    @Override
+    public void setTargetCO2PPM(int arg) {
+        targetCO2PPM = arg;
+    }
+    
     protected Long uid;
     protected String ip;
     protected Integer mistingInterval;
@@ -208,5 +188,6 @@ public class SerializedArduinoState implements SerializedArduinoStateInterface, 
     protected Float targetUpperChamberHumidity;
     protected Float targetUpperChamberTemperature;
     protected Float targetLowerChamberTemperature;
-            
+    protected Integer targetCO2PPM;
+
 }

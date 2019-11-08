@@ -18,16 +18,16 @@ public interface UserCommunicationInterface {
     // Getters
     List<Long> getActiveArduinoSystems();
 
-    List<ArduinoProxy> getArduinoState(List<Integer> args);
-    EventsResponseIterator getArduinoHistory(int numEvents, List<Long> uids, List<Integer> eventTypes);
+    List<ArduinoProxy> getArduinoState(List<Long> uids);
+    EventsResponseIterator getArduinoHistory(int numEvents, List<Long> uids);
 
     Map<Long, String> getArduinoDescriptions(List<Long> uids);
 
     Map<Integer, String> getEventDescriptions();
 
-    String getEventDatabaseBackup(long from, long to);
+    // String getEventDatabaseBackup(long from, long to);
      
-    String getEventDatabaseBackup();
+    // String getEventDatabaseBackup();
     
     long getTime();
    
