@@ -11,7 +11,7 @@ import java.io.Serializable;
  *
  * @author noob
  */
-public class SerializedArduinoState implements SerializedArduinoStateInterface, Serializable {
+public class PersistentArduinoState implements PersistentArduinoStateInterface, Serializable {
 
     @Override
     public long getUID() {

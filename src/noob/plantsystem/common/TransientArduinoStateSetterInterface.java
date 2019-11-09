@@ -33,6 +33,8 @@ public interface TransientArduinoStateSetterInterface {
 
     public void setCurrentLowerChamberTemperature(float arg);
 
+    public void setCurrentCO2PPM(int arg);
+    
     public void setDehumidifying(boolean arg);
 
     public void setCooling(boolean arg);

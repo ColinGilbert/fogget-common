@@ -10,11 +10,11 @@ package noob.plantsystem.common;
  * @author noob
  */
 public class ArduinoProxy {
-    public SerializedArduinoState getSerializedState() {
+    public PersistentArduinoState getSerializedState() {
         return serializedState;
     }
     
-    public void setSerializedState(SerializedArduinoState arg) {
+    public void setSerializedState(PersistentArduinoState arg) {
         serializedState = arg;
     }
     
@@ -26,6 +26,7 @@ public class ArduinoProxy {
         return transientState;
     }
     
-    protected SerializedArduinoState serializedState;
+ 
+    protected PersistentArduinoState serializedState;
     protected TransientArduinoState transientState;
 }

@@ -16,6 +16,7 @@ public class TransientArduinoState implements TransientArduinoStateSetterInterfa
         timeOfDay = arg;
     }
 
+    
     @Override
     public void setCurrentWaterLevel(float arg) {
         currentWaterLevel = arg;
@@ -137,6 +138,16 @@ public class TransientArduinoState implements TransientArduinoStateSetterInterfa
     }
 
     @Override
+    public int getCurrentCO2PPM() {
+        return currentCO2PPM;
+    }
+    
+    @Override
+    public void setCurrentCO2PPM(int arg) {
+       currentCO2PPM = arg;
+    }
+    
+    @Override
     public boolean getDehumidifying() {
         return dehumidifying;
     }
@@ -151,6 +162,9 @@ public class TransientArduinoState implements TransientArduinoStateSetterInterfa
         return injectingCO2;
     }
 
+    
+  
+    
     protected Long timeOfDay;
     protected Float currentWaterLevel;
     protected Float currentNutrientsLevel;
@@ -162,6 +176,7 @@ public class TransientArduinoState implements TransientArduinoStateSetterInterfa
     protected Float currentUpperChamberHumidity;
     protected Float currentUpperChamberTemperature;
     protected Float currentLowerChamberTemperature;
+    protected Integer currentCO2PPM;
     protected Boolean dehumidifying;
     protected Boolean cooling;
     protected Boolean injectingCO2;
