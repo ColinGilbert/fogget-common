@@ -12,7 +12,7 @@ import java.io.Serializable;
  * @author noob
  */
 public class PersistentArduinoState implements PersistentArduinoStateInterface, Serializable {
-
+    
     @Override
     public long getUID() {
         return uid;
@@ -21,16 +21,6 @@ public class PersistentArduinoState implements PersistentArduinoStateInterface, 
     @Override
     public void setUID(long arg) {
         uid = arg;
-    }
-
-    @Override
-    public String getIP() {
-        return ip;
-    }
-
-    @Override
-    public void setIP(String arg) {
-        ip = arg;
     }
 
     @Override
@@ -44,6 +34,16 @@ public class PersistentArduinoState implements PersistentArduinoStateInterface, 
     }
 
     @Override
+    public int getMistingDuration() {
+        return mistingDuration;
+    }
+    
+    @Override
+    public void setMistingDuration(int arg) {
+        mistingDuration = arg;
+    }
+    
+    @Override
     public int getStatusUpdatePushInterval() {
         return statusUpdatePushInterval;
     }
@@ -51,56 +51,6 @@ public class PersistentArduinoState implements PersistentArduinoStateInterface, 
     @Override
     public void setStatusUpdatePushInterval(int arg) {
         statusUpdatePushInterval = arg;
-    }
-
-    @Override
-    public float getMinWaterLevel() {
-        return minWaterLevel;
-    }
-
-    @Override
-    public void setMinWaterLevel(float arg) {
-        minWaterLevel = arg;
-    }
-
-    @Override
-    public float getMaxWaterLevel() {
-        return maxWaterLevel;
-    }
-
-    @Override
-    public void setMaxWaterLevel(float arg) {
-        maxWaterLevel = arg;
-    }
-
-    @Override
-    public float getMinNutrientSolutionLevel() {
-        return minNutrientSolutionLevel;
-    }
-
-    @Override
-    public void setMinNutrientSolutionLevel(float arg) {
-        minNutrientSolutionLevel = arg;
-    }
-
-    @Override
-    public float getMaxNutrientSolutionLevel() {
-        return maxNutrientSolutionLevel;
-    }
-
-    @Override
-    public void setMaxNutrientSolutionLevel(float arg) {
-        maxNutrientSolutionLevel = arg;
-    }
-
-    @Override
-    public int getNutrientsPPM() {
-        return nutrientsPPM;
-    }
-
-    @Override
-    public void setNutrientsPPM(int arg) {
-        nutrientsPPM = arg;
     }
 
     @Override
@@ -174,8 +124,8 @@ public class PersistentArduinoState implements PersistentArduinoStateInterface, 
     }
     
     protected Long uid;
-    protected String ip;
     protected Integer mistingInterval;
+    protected Integer mistingDuration;
     protected Integer statusUpdatePushInterval;
     protected Float minWaterLevel;
     protected Float maxWaterLevel;

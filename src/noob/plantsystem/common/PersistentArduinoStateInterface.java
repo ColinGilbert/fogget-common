@@ -13,32 +13,15 @@ package noob.plantsystem.common;
 public interface PersistentArduinoStateInterface {
     public long getUID();
     public void setUID(long arg);
-    
-    public String getIP();
-    public void setIP(String arg);
-    
+
     public int getMistingInterval();
     public void setMistingInterval(int arg);
     
+    public int getMistingDuration();
+    public void setMistingDuration(int arg);
+    
     public int getStatusUpdatePushInterval();
     public void setStatusUpdatePushInterval(int arg);
-    
-    public float getMinWaterLevel();
-    public void setMinWaterLevel(float arg);
-    
-    public float getMaxWaterLevel();
-    public void setMaxWaterLevel(float arg);
-    
-    
-    public float getMinNutrientSolutionLevel();
-    public void setMinNutrientSolutionLevel(float arg);
-    
-    
-    public float getMaxNutrientSolutionLevel();
-    public void setMaxNutrientSolutionLevel(float arg);
-    
-    public int getNutrientsPPM();
-    public void setNutrientsPPM(int arg);
     
     public double getNutrientSolutionRatio();
     public void setNutrientSolutionRatio(double arg);

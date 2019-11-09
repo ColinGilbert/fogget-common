@@ -16,15 +16,14 @@ public class TransientArduinoState implements TransientArduinoStateSetterInterfa
         timeOfDay = arg;
     }
 
-    
     @Override
-    public void setCurrentWaterLevel(float arg) {
-        currentWaterLevel = arg;
+    public void setReservoirLevel(float arg) {
+        reservoirLevel = arg;
     }
 
     @Override
-    public void setCurrentNutrientsLevel(float arg) {
-        currentNutrientsLevel = arg;
+    public void setNutrientSolutionLevel(float arg) {
+        nutrientSolutionLevel = arg;
     }
 
     @Override
@@ -53,18 +52,23 @@ public class TransientArduinoState implements TransientArduinoStateSetterInterfa
     }
 
     @Override
-    public void setCurrentUpperChamberHumidity(float arg) {
-        currentUpperChamberHumidity = arg;
+    public void setUpperChamberHumidity(float arg) {
+        upperChamberHumidity = arg;
     }
 
     @Override
-    public void setCurrentUpperChamberTemperature(float arg) {
-        currentUpperChamberTemperature = arg;
+    public void setUpperChamberTemperature(float arg) {
+        upperChamberTemperature = arg;
     }
 
     @Override
-    public void setCurrentLowerChamberTemperature(float arg) {
-        currentLowerChamberTemperature = arg;
+    public void setLowerChamberTemperature(float arg) {
+        lowerChamberTemperature = arg;
+    }
+
+    @Override
+    public void setCO2PPM(int arg) {
+        co2PPM = arg;
     }
 
     @Override
@@ -81,20 +85,24 @@ public class TransientArduinoState implements TransientArduinoStateSetterInterfa
     public void setInjectingCO2(boolean arg) {
         injectingCO2 = arg;
     }
-
+    
+    @Override
+    public void setLastUpdated(TransientStateLastUpdated arg) {
+        lastUpdated = arg;
+    }
     @Override
     public long getTimeOfDay() {
         return timeOfDay;
     }
 
     @Override
-    public float getCurrentWaterLevel() {
-        return currentWaterLevel;
+    public float getReservoirLevel() {
+        return reservoirLevel;
     }
 
     @Override
-    public float getCurrentNutrientsLevel() {
-        return currentNutrientsLevel;
+    public float getNutrientSolutionLevel() {
+        return nutrientSolutionLevel;
     }
 
     @Override
@@ -123,30 +131,25 @@ public class TransientArduinoState implements TransientArduinoStateSetterInterfa
     }
 
     @Override
-    public float getCurrentUpperChamberHumidity() {
-        return currentUpperChamberHumidity;
+    public float getUpperChamberHumidity() {
+        return upperChamberHumidity;
     }
 
     @Override
-    public float getCurrentUpperChamberTemperature() {
-        return currentUpperChamberTemperature;
+    public float getUpperChamberTemperature() {
+        return upperChamberTemperature;
     }
 
     @Override
-    public float getCurrentLowerChamberTemperature() {
-        return currentLowerChamberTemperature;
+    public float getLowerChamberTemperature() {
+        return lowerChamberTemperature;
     }
 
     @Override
-    public int getCurrentCO2PPM() {
-        return currentCO2PPM;
+    public int getCO2PPM() {
+        return co2PPM;
     }
-    
-    @Override
-    public void setCurrentCO2PPM(int arg) {
-       currentCO2PPM = arg;
-    }
-    
+
     @Override
     public boolean getDehumidifying() {
         return dehumidifying;
@@ -161,23 +164,27 @@ public class TransientArduinoState implements TransientArduinoStateSetterInterfa
     public boolean getInjectingCO2() {
         return injectingCO2;
     }
-
     
-  
+    @Override
+    public TransientStateLastUpdated getLastUpdated() {
+        return lastUpdated;
+    }
     
     protected Long timeOfDay;
-    protected Float currentWaterLevel;
-    protected Float currentNutrientsLevel;
+    protected Float reservoirLevel;
+    protected Float nutrientSolutionLevel;
     protected Boolean lights;
     protected Boolean powered;
     protected Boolean doorsLocked;
     protected Boolean doorsOpen;
     protected Long timeLeftUnlocked;
-    protected Float currentUpperChamberHumidity;
-    protected Float currentUpperChamberTemperature;
-    protected Float currentLowerChamberTemperature;
-    protected Integer currentCO2PPM;
+    protected Float upperChamberHumidity;
+    protected Float upperChamberTemperature;
+    protected Float lowerChamberTemperature;
+    protected Integer co2PPM;
     protected Boolean dehumidifying;
     protected Boolean cooling;
     protected Boolean injectingCO2;
+    
+    protected TransientStateLastUpdated lastUpdated = new TransientStateLastUpdated();
 }

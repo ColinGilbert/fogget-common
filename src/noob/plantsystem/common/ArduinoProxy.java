@@ -10,23 +10,32 @@ package noob.plantsystem.common;
  * @author noob
  */
 public class ArduinoProxy {
-    public PersistentArduinoState getSerializedState() {
+    
+    public PersistentArduinoState getPersistentState() {
         return serializedState;
     }
     
-    public void setSerializedState(PersistentArduinoState arg) {
+    public void setPersistentState(PersistentArduinoState arg) {
         serializedState = arg;
     }
     
-    public void setTransientArduinoState(TransientArduinoState arg) {
+    public void setTransientState(TransientArduinoState arg) {
         transientState = arg;
     }
     
-    public TransientArduinoState getTransientArduinoState() {
+    public TransientArduinoState getTransientState() {
         return transientState;
     }
     
- 
+    public boolean isPopulated() {
+        return populated;
+    }
+    
+    public void setPopulated() {
+        populated = true;
+    }
+    
+    protected boolean populated = false;
     protected PersistentArduinoState serializedState;
     protected TransientArduinoState transientState;
 }

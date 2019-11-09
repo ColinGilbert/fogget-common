@@ -13,9 +13,9 @@ public interface TransientArduinoStateSetterInterface {
 
     public void setTimeOfDay(long arg);
 
-    public void setCurrentWaterLevel(float arg);
+    public void setReservoirLevel(float arg);
 
-    public void setCurrentNutrientsLevel(float arg);
+    public void setNutrientSolutionLevel(float arg);
 
     public void setLights(boolean arg);
 
@@ -27,17 +27,20 @@ public interface TransientArduinoStateSetterInterface {
 
     public void setTimeLeftUnlocked(long arg);
 
-    public void setCurrentUpperChamberHumidity(float arg);
+    public void setUpperChamberHumidity(float arg);
 
-    public void setCurrentUpperChamberTemperature(float arg);
+    public void setUpperChamberTemperature(float arg);
 
-    public void setCurrentLowerChamberTemperature(float arg);
+    public void setLowerChamberTemperature(float arg);
 
-    public void setCurrentCO2PPM(int arg);
+    public void setCO2PPM(int arg);
     
     public void setDehumidifying(boolean arg);
 
     public void setCooling(boolean arg);
 
     public void setInjectingCO2(boolean arg);
+    
+    void setLastUpdated(TransientStateLastUpdated arg);
+
 }

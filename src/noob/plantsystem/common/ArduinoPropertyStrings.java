@@ -9,135 +9,131 @@ package noob.plantsystem.common;
  *
  * @author noob
  * This class holds the string representation of all our state names
- * These are used during property serialization/deserialization
+ * These are used during serialization/deserialization to XML
  */
 public class ArduinoPropertyStrings {
     
     // Transients
-    public String timeOfDay() {
+    static public final String timeOfDay() {
         return "timeOfDay";
     }
 
-    public String currentWaterLevel() {
-        return "currentWaterLevel";
+    static public final String reservoirLevel() {
+        return "reservoirLevel";
     }
     
-    public String currentNutrientLevel() {
-        return "currentNutrientLevel";
+    static public final String nutrientSolutionLevel() {
+        return "nutrientSolutionevel";
     }
     
-    public String lights() {
+    static public final String lights() {
         return "lights";
     }
     
-    public String powered() {
+    static public final String powered() {
         return "powered";
     }
     
-    public String locked() {
-        return "locked";
+    static public final String doorsLocked() {
+        return "doorsLocked";
     }
     
-    public String doorsOpen() {
+    static public final String doorsOpen() {
         return "doorsOpen";
     }
     
-    public String timeLeftUnlocked() {
+    static public final String timeLeftUnlocked() {
         return "timeLeftUnlocked";
     }
     
-    public String currentUpperChamberHumidity() {
-        return "currentUpperChamberHumidity";
+    static public final String upperChamberHumidity() {
+        return "upperChamberHumidity";
     }
     
-    public String currentUpperChamberTemperature() {
-        return "currentUpperChamberTemperature";
+    static public final String upperChamberTemperature() {
+        return "upperChamberTemperature";
     }
     
-    public String currentLowerChamberTemperature() {
-        return "currentLowerChamberTemperature";
+    static public final String lowerChamberTemperature() {
+        return "lowerChamberTemperature";
     }
     
-    public String currentCO2PPM() {
-        return "currentCO2PPM";
+    static public final String CO2PPM() {
+        return "CO2PPM";
     }
     
-    public String dehumidifying() {
+    static public final String dehumidifying() {
         return "dehumidifying";
     }
     
-    public String cooling() {
+    static public final String cooling() {
         return "cooling";
     }
     
-    public String injectingCO2() {
+    static public final String injectingCO2() {
         return "injectingCO2";
     }
     
     
     // Persistent
     
-    public String uid() {
+    static public final String uid() {
         return "uid";
     }
-    
-    public String ip() {
-        return "ip";
-    }
-    
-    public String mistingInterval() {
+  
+    static public final String mistingInterval() {
         return "mistingInterval";
     }
     
-    public String statusUpdatePushInterval() {
+    static public final String statusUpdatePushInterval() {
         return "statusUpdatePushInterval";
     }
     
-    public String minWaterLevel() {
+    static public final String minWaterLevel() {
         return "minWaterLevel";
     }
     
-    public String maxWaterLevel() {
+    static public final String maxWaterLevel() {
         return "maxWaterLevel";
     }
     
-    public String minNutrientSolutionLevel() {
-        return "minNutrientsSolutionLevel";
+    static public final String minNutrientSolutionLevel() {
+        return "minNutrientSolutionLevel";
     }
    
-    public String maxNutrientSolutionLevel() {
+    static public final String maxNutrientSolutionLevel() {
         return "maxNutrientSolutionLevel";
     }
     
-    public String nutrientsPPM() {
+    static public final String nutrientsPPM() {
         return "nutrientsPPM";
     }
     
-    public String nutrientSolutionRatio() {
+    static public final String nutrientSolutionRatio() {
         return "nutrientSolutionRatio";
     }
     
-    public String lightsOnTime() {
+    static public final String lightsOnTime() {
         return "lightsOnTime";
     }
     
-    public String lightsOffTime() {
+    static public final String lightsOffTime() {
         return "lightsOffTime";
     }
     
-    public String targetUpperChamberHumidity() {
+    static public final String targetUpperChamberHumidity() {
         return "targetUpperChamberHumidity";
     }
     
-    public String targetUpperChamberTemperature() {
+    static public final String targetUpperChamberTemperature() {
         return "targetUpperChamberTemperature";
     }
     
-    public String targetLowerChamberTemperature() {
+    static public final String targetLowerChamberTemperature() {
         return "targetLowerChamberTemperature";
     }
     
-    public String targetCO2PPM() {
+    static public final String targetCO2PPM() {
         return "targetCO2PPM";
     }
 }

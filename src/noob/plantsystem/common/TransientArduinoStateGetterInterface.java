@@ -13,9 +13,9 @@ public interface TransientArduinoStateGetterInterface {
 
     public long getTimeOfDay();
 
-    public float getCurrentWaterLevel();
+    public float getReservoirLevel();
     
-    public float getCurrentNutrientsLevel();
+    public float getNutrientSolutionLevel();
     
     public boolean getLights();
     
@@ -27,17 +27,20 @@ public interface TransientArduinoStateGetterInterface {
     
     public long getTimeLeftUnlocked();
     
-    public float getCurrentUpperChamberHumidity();
+    public float getUpperChamberHumidity();
     
-    public float getCurrentUpperChamberTemperature();
+    public float getUpperChamberTemperature();
     
-    public float getCurrentLowerChamberTemperature();
+    public float getLowerChamberTemperature();
     
-    public int getCurrentCO2PPM();
+    public int getCO2PPM();
     
     public boolean getDehumidifying();
     
     public boolean getCooling();
     
     public boolean getInjectingCO2();
+    
+    public TransientStateLastUpdated getLastUpdated();
+
 }
