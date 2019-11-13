@@ -20,7 +20,7 @@ public class TransientArduinoState implements TransientArduinoStateSetterInterfa
     private float upperChamberHumidity;
     private float upperChamberTemperature;
     private float lowerChamberTemperature;
-    private int CO2PPM;
+    private int currentCO2PPM;
     private boolean dehumidifying;
     private boolean cooling;
     private boolean injectingCO2;
@@ -167,17 +167,17 @@ public class TransientArduinoState implements TransientArduinoStateSetterInterfa
     }
 
     /**
-     * @return the CO2PPM
+     * @return the currentCO2PPM
      */
-    public int getCO2PPM() {
-        return CO2PPM;
+    public int getCurrentCO2PPM() {
+        return currentCO2PPM;
     }
 
     /**
-     * @param CO2PPM the CO2PPM to set
+     * @param currentCO2PPM the currentCO2PPM to set
      */
-    public void setCO2PPM(int CO2PPM) {
-        this.CO2PPM = CO2PPM;
+    public void setCurrentCO2PPM(int currentCO2PPM) {
+        this.currentCO2PPM = currentCO2PPM;
     }
 
     /**

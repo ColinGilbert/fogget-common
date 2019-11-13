@@ -9,8 +9,8 @@ package noob.plantsystem.common;
  *
  * @author noob
  */
-public class ConfigChangeRepresentation implements PersistentArduinoStateSetterInterface, PersistentArduinoStateGetterInterface {
-    
+public class ArduinoConfigChangeRepresentation implements PersistentArduinoStateSetterInterface, PersistentArduinoStateGetterInterface {
+
     private long uid;
     private int mistingInterval;
     private int mistingDuration;
@@ -32,9 +32,24 @@ public class ConfigChangeRepresentation implements PersistentArduinoStateSetterI
     private boolean changingLightsOnTime = false;
     private boolean changingLightsOffTime = false;
     private boolean changingTargetUpperChamberHumidity = false;
-    private boolean changingTargetLowerChamberHumidity = false;
+    private boolean changingTargetUpperChamberTemperature = false;
     private boolean changingTargetLowerChamberTemperature = false;
     private boolean changingTargetCO2PPM = false;
+
+    public void updateConfigValues(PersistentArduinoState state) {
+        uid = state.getUid();
+        mistingInterval = state.getMistingInterval();
+        mistingDuration = state.getMistingDuration();
+        statusUpdatePushInterval = state.getStatusUpdatePushInterval();
+        nutrientsPPM = state.getNutrientsPPM();
+        nutrientSolutionRatio = state.getNutrientSolutionRatio();
+        lightsOnTime = state.getLightsOnTime();
+        lightsOffTime = state.getLightsOffTime();
+        targetUpperChamberTemperature = state.getTargetUpperChamberTemperature();
+        targetUpperChamberHumidity = state.getTargetUpperChamberHumidity();
+        targetLowerChamberTemperature = state.getTargetLowerChamberTemperature();
+        targetCO2PPM = state.getTargetCO2PPM();
+    }
 
     /**
      * @return the uid
@@ -170,7 +185,8 @@ public class ConfigChangeRepresentation implements PersistentArduinoStateSetterI
     }
 
     /**
-     * @param targetUpperChamberTemperature the targetUpperChamberTemperature to set
+     * @param targetUpperChamberTemperature the targetUpperChamberTemperature to
+     * set
      */
     public void setTargetUpperChamberTemperature(float targetUpperChamberTemperature) {
         this.targetUpperChamberTemperature = targetUpperChamberTemperature;
@@ -184,7 +200,8 @@ public class ConfigChangeRepresentation implements PersistentArduinoStateSetterI
     }
 
     /**
-     * @param targetLowerChamberTemperature the targetLowerChamberTemperature to set
+     * @param targetLowerChamberTemperature the targetLowerChamberTemperature to
+     * set
      */
     public void setTargetLowerChamberTemperature(float targetLowerChamberTemperature) {
         this.targetLowerChamberTemperature = targetLowerChamberTemperature;
@@ -240,7 +257,8 @@ public class ConfigChangeRepresentation implements PersistentArduinoStateSetterI
     }
 
     /**
-     * @param changingStatusUpdatePushInterval the changingStatusUpdatePushInterval to set
+     * @param changingStatusUpdatePushInterval the
+     * changingStatusUpdatePushInterval to set
      */
     public void setChangingStatusUpdatePushInterval(boolean changingStatusUpdatePushInterval) {
         this.changingStatusUpdatePushInterval = changingStatusUpdatePushInterval;
@@ -268,7 +286,8 @@ public class ConfigChangeRepresentation implements PersistentArduinoStateSetterI
     }
 
     /**
-     * @param changingNutrientSolutionRatio the changingNutrientSolutionRatio to set
+     * @param changingNutrientSolutionRatio the changingNutrientSolutionRatio to
+     * set
      */
     public void setChangingNutrientSolutionRatio(boolean changingNutrientSolutionRatio) {
         this.changingNutrientSolutionRatio = changingNutrientSolutionRatio;
@@ -310,24 +329,26 @@ public class ConfigChangeRepresentation implements PersistentArduinoStateSetterI
     }
 
     /**
-     * @param changingTargetUpperChamberHumidity the changingTargetUpperChamberHumidity to set
+     * @param changingTargetUpperChamberHumidity the
+     * changingTargetUpperChamberHumidity to set
      */
     public void setChangingTargetUpperChamberHumidity(boolean changingTargetUpperChamberHumidity) {
         this.changingTargetUpperChamberHumidity = changingTargetUpperChamberHumidity;
     }
 
     /**
-     * @return the changingTargetLowerChamberHumidity
+     * @return the changingTargetUpperChamberTemperature
      */
-    public boolean isChangingTargetLowerChamberHumidity() {
-        return changingTargetLowerChamberHumidity;
+    public boolean isChangingTargetUpperChamberTemperature() {
+        return changingTargetUpperChamberTemperature;
     }
 
     /**
-     * @param changingTargetLowerChamberHumidity the changingTargetLowerChamberHumidity to set
+     * @param changingTargetUpperChamberTemperature the
+     * changingTargetUpperChamberTemperature to set
      */
-    public void setChangingTargetLowerChamberHumidity(boolean changingTargetLowerChamberHumidity) {
-        this.changingTargetLowerChamberHumidity = changingTargetLowerChamberHumidity;
+    public void setChangingTargetUpperChamberTemperature(boolean changingTargetUpperChamberTemperature) {
+        this.changingTargetUpperChamberTemperature = changingTargetUpperChamberTemperature;
     }
 
     /**
@@ -338,7 +359,8 @@ public class ConfigChangeRepresentation implements PersistentArduinoStateSetterI
     }
 
     /**
-     * @param changingTargetLowerChamberTemperature the changingTargetLowerChamberTemperature to set
+     * @param changingTargetLowerChamberTemperature the
+     * changingTargetLowerChamberTemperature to set
      */
     public void setChangingTargetLowerChamberTemperature(boolean changingTargetLowerChamberTemperature) {
         this.changingTargetLowerChamberTemperature = changingTargetLowerChamberTemperature;
@@ -357,4 +379,5 @@ public class ConfigChangeRepresentation implements PersistentArduinoStateSetterI
     public void setChangingTargetCO2PPM(boolean changingTargetCO2PPM) {
         this.changingTargetCO2PPM = changingTargetCO2PPM;
     }
+
 }

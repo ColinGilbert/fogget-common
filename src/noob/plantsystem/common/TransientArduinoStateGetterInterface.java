@@ -33,7 +33,7 @@ public interface TransientArduinoStateGetterInterface {
     
     public float getLowerChamberTemperature();
     
-    public int getCO2PPM();
+    public int getCurrentCO2PPM();
     
     public boolean isDehumidifying();
     

@@ -22,7 +22,7 @@ public class EmbeddedStatusReport implements TransientArduinoStateGetterInterfac
         setUpperChamberHumidity(state.getUpperChamberHumidity());
         setUpperChamberTemperature(state.getUpperChamberTemperature());
         setLowerChamberTemperature(state.getLowerChamberTemperature());
-        setCO2PPM(state.getCO2PPM());
+        setCurrentCO2PPM(state.getCurrentCO2PPM());
         setDehumidifying(state.isDehumidifying());
         setInjectingCO2(state.isInjectingCO2());
         setLocked(state.isLocked());
@@ -40,7 +40,7 @@ public class EmbeddedStatusReport implements TransientArduinoStateGetterInterfac
         results.setUpperChamberHumidity(getUpperChamberHumidity());
         results.setUpperChamberTemperature(getUpperChamberTemperature());
         results.setLowerChamberTemperature(getLowerChamberTemperature());
-        results.setCO2PPM(getCO2PPM());
+        results.setCurrentCO2PPM(getCurrentCO2PPM());
         results.setDehumidifying(isDehumidifying());
         results.setInjectingCO2(isInjectingCO2());
         results.setLocked(isLocked());
@@ -59,7 +59,7 @@ public class EmbeddedStatusReport implements TransientArduinoStateGetterInterfac
     private float upperChamberHumidity;
     private float upperChamberTemperature;
     private float lowerChamberTemperature;
-    private int CO2PPM;
+    private int currentCO2PPM;
     private boolean dehumidifying;
     private boolean cooling;
     private boolean injectingCO2;
@@ -234,17 +234,17 @@ public class EmbeddedStatusReport implements TransientArduinoStateGetterInterfac
     }
 
     /**
-     * @return the CO2PPM
+     * @return the currentCO2PPM
      */
-    public int getCO2PPM() {
-        return CO2PPM;
+    public int getCurrentCO2PPM() {
+        return currentCO2PPM;
     }
 
     /**
-     * @param CO2PPM the CO2PPM to set
+     * @param currentCO2PPM the currentCO2PPM to set
      */
-    public void setCO2PPM(int CO2PPM) {
-        this.CO2PPM = CO2PPM;
+    public void setCurrentCO2PPM(int currentCO2PPM) {
+        this.currentCO2PPM = currentCO2PPM;
     }
 
     /**
@@ -302,5 +302,6 @@ public class EmbeddedStatusReport implements TransientArduinoStateGetterInterfac
     public void setLocked(boolean locked) {
         this.locked = locked;
     }
+
 
 }
