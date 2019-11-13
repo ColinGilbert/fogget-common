@@ -10,37 +10,28 @@ package noob.plantsystem.common;
  *
  * @author noob
  */
-public interface PersistentArduinoStateInterface {
-    public long getUID();
-    public void setUID(long arg);
+public interface PersistentArduinoStateGetterInterface {
+    
+    public long getUid();
 
     public int getMistingInterval();
-    public void setMistingInterval(int arg);
-    
+
     public int getMistingDuration();
-    public void setMistingDuration(int arg);
     
     public int getStatusUpdatePushInterval();
-    public void setStatusUpdatePushInterval(int arg);
     
     public double getNutrientSolutionRatio();
-    public void setNutrientSolutionRatio(double arg);
     
     public long getLightsOnTime();
-    public void setLightsOnTime(long arg);
     
     public long getLightsOffTime();
-    public void setLightsOffTime(long arg);
     
     public float getTargetUpperChamberHumidity();
-    public void setTargetUpperChamberHumidity(float arg);
     
     public float getTargetUpperChamberTemperature();
-    public void setTargetUpperChamberTemperature(float arg);
     
     public float getTargetLowerChamberTemperature();
-    public void setTargetLowerChamberTemperature(float arg);
     
     public int getTargetCO2PPM();
-    public void setTargetCO2PPM(int arg);
+    
 }

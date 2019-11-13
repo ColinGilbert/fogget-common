@@ -11,27 +11,42 @@ package noob.plantsystem.common;
  */
 public class TopicStrings {
 
-    static public final String embeddedHello() {
+    static public String embeddedHello() {
+        return "embeddedHello";
+    }
+    static public String helloResponse() {
         return "embeddedHello";
     }
 
-    static public final String embeddedEvent() {
+    static public String embeddedEvent() {
         return "embeddedEvent";
     }
 
-    static public final String embeddedStatusReport() {
-        return "embeddedStatusReport";
+    static public String embeddedTransientStatePush() {
+        return "embeddedTransientStatePush";
     }
 
-    static public final String clientRequestToBackend() {
-        return "clientRequestToBackend";
+    static public String eventsViewRequest() {
+        return "eventsViewRequest";
     }
 
-    static public final String stateChangeRequestoEmbedded() {
-        return "stateChangeRequestToEmbedded";
+    static public String eventsViewResponse() {
+        return "eventsViewResponse";
     }
 
-    static public final String backendResponseToClient() {
-        return "backendResponseToClient";
+    static public String systemsViewRequest() {
+        return "systemsViewRequest";
+    }
+    
+    static public String systemsViewResponse() {
+        return "systemsViewResponse";
+    }
+    
+    static public String stateControlRequest() {
+        return "stateControlRequest";
+    }
+    
+    static public String configPushToEmbedded() {
+        return "configPushToEmbedded";
     }
 }

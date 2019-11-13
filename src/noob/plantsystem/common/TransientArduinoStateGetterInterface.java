@@ -17,13 +17,13 @@ public interface TransientArduinoStateGetterInterface {
     
     public float getNutrientSolutionLevel();
     
-    public boolean getLights();
+    public boolean isLit();
     
-    public boolean getPowered();
+    public boolean isPowered();
     
-    public boolean getLocked();
+    public boolean isLocked();
     
-    public boolean getDoorsOpen();
+    public boolean isOpen();
     
     public long getTimeLeftUnlocked();
     
@@ -35,12 +35,10 @@ public interface TransientArduinoStateGetterInterface {
     
     public int getCO2PPM();
     
-    public boolean getDehumidifying();
+    public boolean isDehumidifying();
     
-    public boolean getCooling();
+    public boolean isCooling();
     
-    public boolean getInjectingCO2();
+    public boolean isInjectingCO2();
     
-    public TransientStateLastUpdated getLastUpdated();
-
 }

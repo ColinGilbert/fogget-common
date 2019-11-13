@@ -9,7 +9,46 @@ package noob.plantsystem.common;
  *
  * @author noob
  */
-public class TransientArduinoState implements TransientArduinoStateSetterInterface, TransientArduinoStateGetterInterface {
+public class EmbeddedStatusReport implements TransientArduinoStateGetterInterface, TransientArduinoStateSetterInterface {
+
+    public void makeFromTransientState(TransientArduinoState state) {
+        setTimeOfDay(state.getTimeOfDay());
+        setReservoirLevel(state.getReservoirLevel());
+        setNutrientSolutionLevel(state.getNutrientSolutionLevel());
+        setLit(state.isLit());
+        setPowered(state.isPowered());
+        setOpen(state.isOpen());
+        setTimeLeftUnlocked(state.getTimeLeftUnlocked());
+        setUpperChamberHumidity(state.getUpperChamberHumidity());
+        setUpperChamberTemperature(state.getUpperChamberTemperature());
+        setLowerChamberTemperature(state.getLowerChamberTemperature());
+        setCO2PPM(state.getCO2PPM());
+        setDehumidifying(state.isDehumidifying());
+        setInjectingCO2(state.isInjectingCO2());
+        setLocked(state.isLocked());
+    }
+
+    public TransientArduinoState makeFromTransientState() {
+        TransientArduinoState results = new TransientArduinoState();
+        results.setTimeOfDay(getTimeOfDay());
+        results.setReservoirLevel(getReservoirLevel());
+        results.setNutrientSolutionLevel(getNutrientSolutionLevel());
+        results.setLit(isLit());
+        results.setPowered(isPowered());
+        results.setOpen(isOpen());
+        results.setTimeLeftUnlocked(getTimeLeftUnlocked());
+        results.setUpperChamberHumidity(getUpperChamberHumidity());
+        results.setUpperChamberTemperature(getUpperChamberTemperature());
+        results.setLowerChamberTemperature(getLowerChamberTemperature());
+        results.setCO2PPM(getCO2PPM());
+        results.setDehumidifying(isDehumidifying());
+        results.setInjectingCO2(isInjectingCO2());
+        results.setLocked(isLocked());
+        return results;
+    }
+
+    private long uid;
+    private long timestamp;
     private long timeOfDay;
     private float reservoirLevel;
     private float nutrientSolutionLevel;
@@ -25,6 +64,34 @@ public class TransientArduinoState implements TransientArduinoStateSetterInterfa
     private boolean cooling;
     private boolean injectingCO2;
     private boolean locked;
+
+    /**
+     * @return the uid
+     */
+    public long getUid() {
+        return uid;
+    }
+
+    /**
+     * @param uid the uid to set
+     */
+    public void setUid(long uid) {
+        this.uid = uid;
+    }
+
+    /**
+     * @return the timestamp
+     */
+    public long getTimestamp() {
+        return timestamp;
+    }
+
+    /**
+     * @param timestamp the timestamp to set
+     */
+    public void setTimestamp(long timestamp) {
+        this.timestamp = timestamp;
+    }
 
     /**
      * @return the timeOfDay

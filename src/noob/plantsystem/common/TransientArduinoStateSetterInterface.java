@@ -17,13 +17,13 @@ public interface TransientArduinoStateSetterInterface {
 
     public void setNutrientSolutionLevel(float arg);
 
-    public void setLights(boolean arg);
+    public void setLit(boolean arg);
 
     public void setPowered(boolean arg);
 
-    public void setDoorsLocked(boolean arg);
+    public void setLocked(boolean arg);
 
-    public void setDoorsOpen(boolean arg);
+    public void setOpen(boolean arg);
 
     public void setTimeLeftUnlocked(long arg);
 
@@ -40,7 +40,4 @@ public interface TransientArduinoStateSetterInterface {
     public void setCooling(boolean arg);
 
     public void setInjectingCO2(boolean arg);
-    
-    void setLastUpdated(TransientStateLastUpdated arg);
-
 }

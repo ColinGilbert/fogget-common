@@ -11,133 +11,186 @@ import java.io.Serializable;
  *
  * @author noob
  */
-public class PersistentArduinoState implements PersistentArduinoStateInterface, Serializable {
-    
-    @Override
-    public long getUID() {
+public class PersistentArduinoState implements PersistentArduinoStateGetterInterface, PersistentArduinoStateSetterInterface {
+        
+    private long uid;
+    private int mistingInterval;
+    private int mistingDuration;
+    private int statusUpdatePushInterval;
+    private int nutrientsPPM;
+    private double nutrientSolutionRatio;
+    private long lightsOnTime;
+    private long lightsOffTime;
+    private float targetUpperChamberHumidity;
+    private float targetUpperChamberTemperature;
+    private float targetLowerChamberTemperature;
+    private int targetCO2PPM;
+
+    /**
+     * @return the uid
+     */
+    public long getUid() {
         return uid;
     }
 
-    @Override
-    public void setUID(long arg) {
-        uid = arg;
+    /**
+     * @param uid the uid to set
+     */
+    public void setUid(long uid) {
+        this.uid = uid;
     }
 
-    @Override
+    /**
+     * @return the mistingInterval
+     */
     public int getMistingInterval() {
         return mistingInterval;
     }
 
-    @Override
-    public void setMistingInterval(int arg) {
-        mistingInterval = arg;
+    /**
+     * @param mistingInterval the mistingInterval to set
+     */
+    public void setMistingInterval(int mistingInterval) {
+        this.mistingInterval = mistingInterval;
     }
 
-    @Override
+    /**
+     * @return the mistingDuration
+     */
     public int getMistingDuration() {
         return mistingDuration;
     }
-    
-    @Override
-    public void setMistingDuration(int arg) {
-        mistingDuration = arg;
+
+    /**
+     * @param mistingDuration the mistingDuration to set
+     */
+    public void setMistingDuration(int mistingDuration) {
+        this.mistingDuration = mistingDuration;
     }
-    
-    @Override
+
+    /**
+     * @return the statusUpdatePushInterval
+     */
     public int getStatusUpdatePushInterval() {
         return statusUpdatePushInterval;
     }
 
-    @Override
-    public void setStatusUpdatePushInterval(int arg) {
-        statusUpdatePushInterval = arg;
+    /**
+     * @param statusUpdatePushInterval the statusUpdatePushInterval to set
+     */
+    public void setStatusUpdatePushInterval(int statusUpdatePushInterval) {
+        this.statusUpdatePushInterval = statusUpdatePushInterval;
     }
 
-    @Override
+    /**
+     * @return the nutrientsPPM
+     */
+    public int getNutrientsPPM() {
+        return nutrientsPPM;
+    }
+
+    /**
+     * @param nutrientsPPM the nutrientsPPM to set
+     */
+    public void setNutrientsPPM(int nutrientsPPM) {
+        this.nutrientsPPM = nutrientsPPM;
+    }
+
+    /**
+     * @return the nutrientSolutionRatio
+     */
     public double getNutrientSolutionRatio() {
         return nutrientSolutionRatio;
     }
 
-    @Override
-    public void setNutrientSolutionRatio(double arg) {
-        nutrientSolutionRatio = arg;
+    /**
+     * @param nutrientSolutionRatio the nutrientSolutionRatio to set
+     */
+    public void setNutrientSolutionRatio(double nutrientSolutionRatio) {
+        this.nutrientSolutionRatio = nutrientSolutionRatio;
     }
 
-    @Override
+    /**
+     * @return the lightsOnTime
+     */
     public long getLightsOnTime() {
         return lightsOnTime;
     }
 
-    @Override
-    public void setLightsOnTime(long arg) {
-        lightsOnTime = arg;
+    /**
+     * @param lightsOnTime the lightsOnTime to set
+     */
+    public void setLightsOnTime(long lightsOnTime) {
+        this.lightsOnTime = lightsOnTime;
     }
 
-    @Override
+    /**
+     * @return the lightsOffTime
+     */
     public long getLightsOffTime() {
         return lightsOffTime;
     }
 
-    @Override
-    public void setLightsOffTime(long arg) {
-        lightsOffTime = arg;
+    /**
+     * @param lightsOffTime the lightsOffTime to set
+     */
+    public void setLightsOffTime(long lightsOffTime) {
+        this.lightsOffTime = lightsOffTime;
     }
 
-    @Override
+    /**
+     * @return the targetUpperChamberHumidity
+     */
     public float getTargetUpperChamberHumidity() {
-        return lightsOffTime;
+        return targetUpperChamberHumidity;
     }
 
-    @Override
-    public void setTargetUpperChamberHumidity(float arg) {
-        targetUpperChamberHumidity = arg;
+    /**
+     * @param targetUpperChamberHumidity the targetUpperChamberHumidity to set
+     */
+    public void setTargetUpperChamberHumidity(float targetUpperChamberHumidity) {
+        this.targetUpperChamberHumidity = targetUpperChamberHumidity;
     }
 
-    @Override
+    /**
+     * @return the targetUpperChamberTemperature
+     */
     public float getTargetUpperChamberTemperature() {
         return targetUpperChamberTemperature;
     }
 
-    @Override
-    public void setTargetUpperChamberTemperature(float arg) {
-        targetUpperChamberTemperature = arg;
+    /**
+     * @param targetUpperChamberTemperature the targetUpperChamberTemperature to set
+     */
+    public void setTargetUpperChamberTemperature(float targetUpperChamberTemperature) {
+        this.targetUpperChamberTemperature = targetUpperChamberTemperature;
     }
 
-    @Override
+    /**
+     * @return the targetLowerChamberTemperature
+     */
     public float getTargetLowerChamberTemperature() {
         return targetLowerChamberTemperature;
     }
 
-    @Override
-    public void setTargetLowerChamberTemperature(float arg) {
-        targetLowerChamberTemperature = arg;
+    /**
+     * @param targetLowerChamberTemperature the targetLowerChamberTemperature to set
+     */
+    public void setTargetLowerChamberTemperature(float targetLowerChamberTemperature) {
+        this.targetLowerChamberTemperature = targetLowerChamberTemperature;
     }
 
-    @Override
+    /**
+     * @return the targetCO2PPM
+     */
     public int getTargetCO2PPM() {
         return targetCO2PPM;
     }
-    
-    @Override
-    public void setTargetCO2PPM(int arg) {
-        targetCO2PPM = arg;
-    }
-    
-    protected Long uid;
-    protected Integer mistingInterval;
-    protected Integer mistingDuration;
-    protected Integer statusUpdatePushInterval;
-    protected Float minWaterLevel;
-    protected Float maxWaterLevel;
-    protected Float minNutrientSolutionLevel;
-    protected Float maxNutrientSolutionLevel;
-    protected Integer nutrientsPPM;
-    protected Double nutrientSolutionRatio;
-    protected Long lightsOnTime;
-    protected Long lightsOffTime;
-    protected Float targetUpperChamberHumidity;
-    protected Float targetUpperChamberTemperature;
-    protected Float targetLowerChamberTemperature;
-    protected Integer targetCO2PPM;
 
+    /**
+     * @param targetCO2PPM the targetCO2PPM to set
+     */
+    public void setTargetCO2PPM(int targetCO2PPM) {
+        this.targetCO2PPM = targetCO2PPM;
+    }
 }
