@@ -17,7 +17,7 @@ public interface PersistentArduinoStateSetterInterface {
 
     public void setMistingDuration(int arg);
 
-    public void setStatusUpdatePushInterval(int arg);
+    public void setStatusPushInterval(int arg);
 
     public void setNutrientSolutionRatio(double arg);
 

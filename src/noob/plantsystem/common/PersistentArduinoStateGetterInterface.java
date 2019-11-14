@@ -18,7 +18,7 @@ public interface PersistentArduinoStateGetterInterface {
 
     public int getMistingDuration();
     
-    public int getStatusUpdatePushInterval();
+    public int getStatusPushInterval();
     
     public double getNutrientSolutionRatio();
     

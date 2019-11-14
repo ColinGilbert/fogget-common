@@ -12,38 +12,38 @@ package noob.plantsystem.common;
 public class EmbeddedStatusReport implements TransientArduinoStateGetterInterface, TransientArduinoStateSetterInterface {
 
     public void updateTransientState(TransientArduinoState state) {
-        setReservoirLevel(state.getReservoirLevel());
-        setNutrientSolutionLevel(state.getNutrientSolutionLevel());
-        setLit(state.isLit());
-        setPowered(state.isPowered());
-        setMisting(state.isMisting());
-        setOpen(state.isOpen());
-        setTimeLeftUnlocked(state.getTimeLeftUnlocked());
-        setUpperChamberHumidity(state.getUpperChamberHumidity());
-        setUpperChamberTemperature(state.getUpperChamberTemperature());
-        setLowerChamberTemperature(state.getLowerChamberTemperature());
-        setCurrentCO2PPM(state.getCurrentCO2PPM());
-        setDehumidifying(state.isDehumidifying());
-        setInjectingCO2(state.isInjectingCO2());
-        setLocked(state.isLocked());
+        reservoirLevel = state.getReservoirLevel();
+        nutrientSolutionLevel = state.getNutrientSolutionLevel();
+        lit = state.isLit();
+        powered = state.isPowered();
+        misting= state.isMisting();
+        open = state.isOpen();
+        timeLeftUnlocked = state.getTimeLeftUnlocked();
+        currentUpperChamberHumidity = state.getCurrentUpperChamberHumidity();
+        currentUpperChamberTemperature = state.getCurrentUpperChamberTemperature();
+        currentLowerChamberTemperature = state.getCurrentLowerChamberTemperature();
+        currentCO2PPM = state.getCurrentCO2PPM();
+        dehumidifying = state.isDehumidifying();
+        injectingCO2 = state.isInjectingCO2();
+        locked = state.isLocked();
     }
 
     public TransientArduinoState extractTransientState() {
         TransientArduinoState results = new TransientArduinoState();
-        results.setReservoirLevel(getReservoirLevel());
-        results.setNutrientSolutionLevel(getNutrientSolutionLevel());
-        results.setPowered(isPowered());
-        results.setLit(isLit());
-        results.setMisting(isMisting());
-        results.setOpen(isOpen());
-        results.setTimeLeftUnlocked(getTimeLeftUnlocked());
-        results.setUpperChamberHumidity(getUpperChamberHumidity());
-        results.setUpperChamberTemperature(getUpperChamberTemperature());
-        results.setLowerChamberTemperature(getLowerChamberTemperature());
-        results.setCurrentCO2PPM(getCurrentCO2PPM());
-        results.setDehumidifying(isDehumidifying());
-        results.setInjectingCO2(isInjectingCO2());
-        results.setLocked(isLocked());
+        results.setReservoirLevel(reservoirLevel);
+        results.setNutrientSolutionLevel(nutrientSolutionLevel);
+        results.setTimeLeftUnlocked(timeLeftUnlocked);
+        results.setCurrentUpperChamberHumidity(currentUpperChamberHumidity);
+        results.setCurrentUpperChamberTemperature(currentUpperChamberTemperature);
+        results.setCurrentLowerChamberTemperature(currentLowerChamberTemperature);
+        results.setCurrentCO2PPM(currentCO2PPM);
+        results.setPowered(powered);
+        results.setLit(lit);
+        results.setMisting(misting);
+        results.setOpen(open);
+        results.setDehumidifying(dehumidifying);
+        results.setInjectingCO2(injectingCO2);
+        results.setLocked(locked);
         return results;
     }
 
@@ -52,9 +52,9 @@ public class EmbeddedStatusReport implements TransientArduinoStateGetterInterfac
     private float reservoirLevel;
     private float nutrientSolutionLevel;
     private long timeLeftUnlocked;
-    private float upperChamberHumidity;
-    private float upperChamberTemperature;
-    private float lowerChamberTemperature;
+    private float currentUpperChamberHumidity;
+    private float currentUpperChamberTemperature;
+    private float currentLowerChamberTemperature;
     private int currentCO2PPM;
     
     private boolean powered;
@@ -137,45 +137,45 @@ public class EmbeddedStatusReport implements TransientArduinoStateGetterInterfac
     }
 
     /**
-     * @return the upperChamberHumidity
+     * @return the currentUpperChamberHumidity
      */
-    public float getUpperChamberHumidity() {
-        return upperChamberHumidity;
+    public float getCurrentUpperChamberHumidity() {
+        return currentUpperChamberHumidity;
     }
 
     /**
-     * @param upperChamberHumidity the upperChamberHumidity to set
+     * @param currentUpperChamberHumidity the currentUpperChamberHumidity to set
      */
-    public void setUpperChamberHumidity(float upperChamberHumidity) {
-        this.upperChamberHumidity = upperChamberHumidity;
+    public void setCurrentUpperChamberHumidity(float currentUpperChamberHumidity) {
+        this.currentUpperChamberHumidity = currentUpperChamberHumidity;
     }
 
     /**
-     * @return the upperChamberTemperature
+     * @return the currentUpperChamberTemperature
      */
-    public float getUpperChamberTemperature() {
-        return upperChamberTemperature;
+    public float getCurrentUpperChamberTemperature() {
+        return currentUpperChamberTemperature;
     }
 
     /**
-     * @param upperChamberTemperature the upperChamberTemperature to set
+     * @param currentUpperChamberTemperature the currentUpperChamberTemperature to set
      */
-    public void setUpperChamberTemperature(float upperChamberTemperature) {
-        this.upperChamberTemperature = upperChamberTemperature;
+    public void setCurrentUpperChamberTemperature(float currentUpperChamberTemperature) {
+        this.currentUpperChamberTemperature = currentUpperChamberTemperature;
     }
 
     /**
-     * @return the lowerChamberTemperature
+     * @return the currentLowerChamberTemperature
      */
-    public float getLowerChamberTemperature() {
-        return lowerChamberTemperature;
+    public float getCurrentLowerChamberTemperature() {
+        return currentLowerChamberTemperature;
     }
 
     /**
-     * @param lowerChamberTemperature the lowerChamberTemperature to set
+     * @param currentLowerChamberTemperature the currentLowerChamberTemperature to set
      */
-    public void setLowerChamberTemperature(float lowerChamberTemperature) {
-        this.lowerChamberTemperature = lowerChamberTemperature;
+    public void setCurrentLowerChamberTemperature(float currentLowerChamberTemperature) {
+        this.currentLowerChamberTemperature = currentLowerChamberTemperature;
     }
 
     /**
@@ -303,4 +303,5 @@ public class EmbeddedStatusReport implements TransientArduinoStateGetterInterfac
     public void setLocked(boolean locked) {
         this.locked = locked;
     }
+
 }

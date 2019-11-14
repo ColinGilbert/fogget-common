@@ -29,11 +29,11 @@ public interface TransientArduinoStateGetterInterface {
     
     public long getTimeLeftUnlocked();
     
-    public float getUpperChamberHumidity();
+    public float getCurrentUpperChamberHumidity();
     
-    public float getUpperChamberTemperature();
+    public float getCurrentUpperChamberTemperature();
     
-    public float getLowerChamberTemperature();
+    public float getCurrentLowerChamberTemperature();
     
     public int getCurrentCO2PPM();
     

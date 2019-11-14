@@ -14,7 +14,7 @@ public class ArduinoConfigChangeRepresentation implements PersistentArduinoState
     private long uid;
     private int mistingInterval;
     private int mistingDuration;
-    private int statusUpdatePushInterval;
+    private int statusPushInterval;
     private int nutrientsPPM;
     private double nutrientSolutionRatio;
     private long lightsOnTime;
@@ -26,7 +26,7 @@ public class ArduinoConfigChangeRepresentation implements PersistentArduinoState
 
     private boolean changingMistingInterval = false;
     private boolean changingMistingDuration = false;
-    private boolean changingStatusUpdatePushInterval = false;
+    private boolean changingStatusPushInterval = false;
     private boolean changingNutrientsPPM = false;
     private boolean changingNutrientSolutionRatio = false;
     private boolean changingLightsOnTime = false;
@@ -36,11 +36,11 @@ public class ArduinoConfigChangeRepresentation implements PersistentArduinoState
     private boolean changingTargetLowerChamberTemperature = false;
     private boolean changingTargetCO2PPM = false;
 
-    public void updateConfigValues(PersistentArduinoState state) {
+    public void updateConfigValues(ArduinoProxy state) {
         uid = state.getUid();
         mistingInterval = state.getMistingInterval();
         mistingDuration = state.getMistingDuration();
-        statusUpdatePushInterval = state.getStatusUpdatePushInterval();
+        statusPushInterval = state.getStatusPushInterval();
         nutrientsPPM = state.getNutrientsPPM();
         nutrientSolutionRatio = state.getNutrientSolutionRatio();
         lightsOnTime = state.getLightsOnTime();
@@ -49,6 +49,34 @@ public class ArduinoConfigChangeRepresentation implements PersistentArduinoState
         targetUpperChamberHumidity = state.getTargetUpperChamberHumidity();
         targetLowerChamberTemperature = state.getTargetLowerChamberTemperature();
         targetCO2PPM = state.getTargetCO2PPM();
+    }
+
+    public void noChange() {
+        changingMistingInterval = false;
+        changingMistingDuration = false;
+        changingStatusPushInterval = false;
+        changingNutrientsPPM = false;
+        changingNutrientSolutionRatio = false;
+        changingLightsOnTime = false;
+        changingLightsOffTime = false;
+        changingTargetUpperChamberHumidity = false;
+        changingTargetUpperChamberTemperature = false;
+        changingTargetLowerChamberTemperature = false;
+        changingTargetCO2PPM = false;
+    }
+
+    public void changeAll() {
+        changingMistingInterval = false;
+        changingMistingDuration = false;
+        changingStatusPushInterval = false;
+        changingNutrientsPPM = false;
+        changingNutrientSolutionRatio = false;
+        changingLightsOnTime = false;
+        changingLightsOffTime = false;
+        changingTargetUpperChamberHumidity = false;
+        changingTargetUpperChamberTemperature = false;
+        changingTargetLowerChamberTemperature = false;
+        changingTargetCO2PPM = false;
     }
 
     /**
@@ -94,17 +122,17 @@ public class ArduinoConfigChangeRepresentation implements PersistentArduinoState
     }
 
     /**
-     * @return the statusUpdatePushInterval
+     * @return the statusPushInterval
      */
-    public int getStatusUpdatePushInterval() {
-        return statusUpdatePushInterval;
+    public int getStatusPushInterval() {
+        return statusPushInterval;
     }
 
     /**
-     * @param statusUpdatePushInterval the statusUpdatePushInterval to set
+     * @param statusPushInterval the statusPushInterval to set
      */
-    public void setStatusUpdatePushInterval(int statusUpdatePushInterval) {
-        this.statusUpdatePushInterval = statusUpdatePushInterval;
+    public void setStatusPushInterval(int statusPushInterval) {
+        this.statusPushInterval = statusPushInterval;
     }
 
     /**
@@ -250,18 +278,17 @@ public class ArduinoConfigChangeRepresentation implements PersistentArduinoState
     }
 
     /**
-     * @return the changingStatusUpdatePushInterval
+     * @return the changingStatusPushInterval
      */
-    public boolean isChangingStatusUpdatePushInterval() {
-        return changingStatusUpdatePushInterval;
+    public boolean isChangingStatusPushInterval() {
+        return changingStatusPushInterval;
     }
 
     /**
-     * @param changingStatusUpdatePushInterval the
-     * changingStatusUpdatePushInterval to set
+     * @param changingStatusPushInterval the changingStatusPushInterval to set
      */
-    public void setChangingStatusUpdatePushInterval(boolean changingStatusUpdatePushInterval) {
-        this.changingStatusUpdatePushInterval = changingStatusUpdatePushInterval;
+    public void setChangingStatusPushInterval(boolean changingStatusPushInterval) {
+        this.changingStatusPushInterval = changingStatusPushInterval;
     }
 
     /**

@@ -14,9 +14,9 @@ public class TransientArduinoState implements TransientArduinoStateSetterInterfa
     private long timeLeftUnlocked;
     private float reservoirLevel;
     private float nutrientSolutionLevel;
-    private float upperChamberHumidity;
-    private float upperChamberTemperature;
-    private float lowerChamberTemperature;
+    private float currentUpperChamberHumidity;
+    private float currentUpperChamberTemperature;
+    private float currentLowerChamberTemperature;
     private int currentCO2PPM;
     private boolean lit;
     private boolean powered;
@@ -28,14 +28,14 @@ public class TransientArduinoState implements TransientArduinoStateSetterInterfa
     private boolean locked;
 
     /**
-     * @return the timeOfDay
+     * @return the timestamp
      */
     public long getTimestamp() {
         return timestamp;
     }
 
     /**
-     * @param timeOfDay the timeOfDay to set
+     * @param timestamp the timestamp to set
      */
     public void setTimestamp(long timestamp) {
         this.timestamp = timestamp;
@@ -84,45 +84,45 @@ public class TransientArduinoState implements TransientArduinoStateSetterInterfa
     }
 
     /**
-     * @return the upperChamberHumidity
+     * @return the currentUpperChamberHumidity
      */
-    public float getUpperChamberHumidity() {
-        return upperChamberHumidity;
+    public float getCurrentUpperChamberHumidity() {
+        return currentUpperChamberHumidity;
     }
 
     /**
-     * @param upperChamberHumidity the upperChamberHumidity to set
+     * @param currentUpperChamberHumidity the currentUpperChamberHumidity to set
      */
-    public void setUpperChamberHumidity(float upperChamberHumidity) {
-        this.upperChamberHumidity = upperChamberHumidity;
+    public void setCurrentUpperChamberHumidity(float currentUpperChamberHumidity) {
+        this.currentUpperChamberHumidity = currentUpperChamberHumidity;
     }
 
     /**
-     * @return the upperChamberTemperature
+     * @return the currentUpperChamberTemperature
      */
-    public float getUpperChamberTemperature() {
-        return upperChamberTemperature;
+    public float getCurrentUpperChamberTemperature() {
+        return currentUpperChamberTemperature;
     }
 
     /**
-     * @param upperChamberTemperature the upperChamberTemperature to set
+     * @param currentUpperChamberTemperature the currentUpperChamberTemperature to set
      */
-    public void setUpperChamberTemperature(float upperChamberTemperature) {
-        this.upperChamberTemperature = upperChamberTemperature;
+    public void setCurrentUpperChamberTemperature(float currentUpperChamberTemperature) {
+        this.currentUpperChamberTemperature = currentUpperChamberTemperature;
     }
 
     /**
-     * @return the lowerChamberTemperature
+     * @return the currentLowerChamberTemperature
      */
-    public float getLowerChamberTemperature() {
-        return lowerChamberTemperature;
+    public float getCurrentLowerChamberTemperature() {
+        return currentLowerChamberTemperature;
     }
 
     /**
-     * @param lowerChamberTemperature the lowerChamberTemperature to set
+     * @param currentLowerChamberTemperature the currentLowerChamberTemperature to set
      */
-    public void setLowerChamberTemperature(float lowerChamberTemperature) {
-        this.lowerChamberTemperature = lowerChamberTemperature;
+    public void setCurrentLowerChamberTemperature(float currentLowerChamberTemperature) {
+        this.currentLowerChamberTemperature = currentLowerChamberTemperature;
     }
 
     /**
@@ -250,4 +250,5 @@ public class TransientArduinoState implements TransientArduinoStateSetterInterfa
     public void setLocked(boolean locked) {
         this.locked = locked;
     }
+
 }

@@ -29,11 +29,11 @@ public interface TransientArduinoStateSetterInterface {
 
     public void setTimeLeftUnlocked(long arg);
 
-    public void setUpperChamberHumidity(float arg);
+    public void setCurrentUpperChamberHumidity(float arg);
 
-    public void setUpperChamberTemperature(float arg);
+    public void setCurrentUpperChamberTemperature(float arg);
 
-    public void setLowerChamberTemperature(float arg);
+    public void setCurrentLowerChamberTemperature(float arg);
 
     public void setCurrentCO2PPM(int arg);
     

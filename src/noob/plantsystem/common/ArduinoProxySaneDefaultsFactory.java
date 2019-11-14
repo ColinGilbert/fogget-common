@@ -17,10 +17,12 @@ public class ArduinoProxySaneDefaultsFactory {
 
         ArduinoProxy proxy = new ArduinoProxy();
         
+        transientState.setPowered(true);
+        transientState.setLit(true);
         persistentState.setUid(-1); // Invalid UID that can easily be spotted.
         persistentState.setMistingInterval(15000); // Fifteen seconds time between mistings. 
         persistentState.setMistingDuration(2000); // Two seconds misting time
-        persistentState.setStatusUpdatePushInterval(1000); // One update per second
+        persistentState.setStatusPushInterval(1000); // One update per second
         persistentState.setNutrientSolutionRatio(0.01d);
         persistentState.setLightsOnTime(-1); // Lights on time = -1 means always on
         persistentState.setLightsOffTime(-1); // Lights off time = -1 also means always on 

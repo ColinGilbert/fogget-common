@@ -16,7 +16,7 @@ public class PersistentArduinoState implements PersistentArduinoStateGetterInter
     private long uid;
     private int mistingInterval;
     private int mistingDuration;
-    private int statusUpdatePushInterval;
+    private int statusPushInterval;
     private int nutrientsPPM;
     private double nutrientSolutionRatio;
     private long lightsOnTime;
@@ -71,15 +71,15 @@ public class PersistentArduinoState implements PersistentArduinoStateGetterInter
     /**
      * @return the statusUpdatePushInterval
      */
-    public int getStatusUpdatePushInterval() {
-        return statusUpdatePushInterval;
+    public int getStatusPushInterval() {
+        return statusPushInterval;
     }
 
     /**
      * @param statusUpdatePushInterval the statusUpdatePushInterval to set
      */
-    public void setStatusUpdatePushInterval(int statusUpdatePushInterval) {
-        this.statusUpdatePushInterval = statusUpdatePushInterval;
+    public void setStatusPushInterval(int statusUpdatePushInterval) {
+        this.statusPushInterval = statusUpdatePushInterval;
     }
 
     /**
