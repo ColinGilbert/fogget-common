@@ -11,12 +11,12 @@ package noob.plantsystem.common;
  */
 public class EmbeddedStatusReport implements TransientArduinoStateGetterInterface, TransientArduinoStateSetterInterface {
 
-    public void makeFromTransientState(TransientArduinoState state) {
-        setTimeOfDay(state.getTimeOfDay());
+    public void updateTransientState(TransientArduinoState state) {
         setReservoirLevel(state.getReservoirLevel());
         setNutrientSolutionLevel(state.getNutrientSolutionLevel());
         setLit(state.isLit());
         setPowered(state.isPowered());
+        setMisting(state.isMisting());
         setOpen(state.isOpen());
         setTimeLeftUnlocked(state.getTimeLeftUnlocked());
         setUpperChamberHumidity(state.getUpperChamberHumidity());
@@ -28,13 +28,13 @@ public class EmbeddedStatusReport implements TransientArduinoStateGetterInterfac
         setLocked(state.isLocked());
     }
 
-    public TransientArduinoState makeFromTransientState() {
+    public TransientArduinoState extractTransientState() {
         TransientArduinoState results = new TransientArduinoState();
-        results.setTimeOfDay(getTimeOfDay());
         results.setReservoirLevel(getReservoirLevel());
         results.setNutrientSolutionLevel(getNutrientSolutionLevel());
-        results.setLit(isLit());
         results.setPowered(isPowered());
+        results.setLit(isLit());
+        results.setMisting(isMisting());
         results.setOpen(isOpen());
         results.setTimeLeftUnlocked(getTimeLeftUnlocked());
         results.setUpperChamberHumidity(getUpperChamberHumidity());
@@ -49,17 +49,18 @@ public class EmbeddedStatusReport implements TransientArduinoStateGetterInterfac
 
     private long uid;
     private long timestamp;
-    private long timeOfDay;
     private float reservoirLevel;
     private float nutrientSolutionLevel;
-    private boolean lit;
-    private boolean powered;
-    private boolean open;
     private long timeLeftUnlocked;
     private float upperChamberHumidity;
     private float upperChamberTemperature;
     private float lowerChamberTemperature;
     private int currentCO2PPM;
+    
+    private boolean powered;
+    private boolean lit;
+    private boolean misting;
+    private boolean open;
     private boolean dehumidifying;
     private boolean cooling;
     private boolean injectingCO2;
@@ -94,20 +95,6 @@ public class EmbeddedStatusReport implements TransientArduinoStateGetterInterfac
     }
 
     /**
-     * @return the timeOfDay
-     */
-    public long getTimeOfDay() {
-        return timeOfDay;
-    }
-
-    /**
-     * @param timeOfDay the timeOfDay to set
-     */
-    public void setTimeOfDay(long timeOfDay) {
-        this.timeOfDay = timeOfDay;
-    }
-
-    /**
      * @return the reservoirLevel
      */
     public float getReservoirLevel() {
@@ -133,48 +120,6 @@ public class EmbeddedStatusReport implements TransientArduinoStateGetterInterfac
      */
     public void setNutrientSolutionLevel(float nutrientSolutionLevel) {
         this.nutrientSolutionLevel = nutrientSolutionLevel;
-    }
-
-    /**
-     * @return the lit
-     */
-    public boolean isLit() {
-        return lit;
-    }
-
-    /**
-     * @param lit the lit to set
-     */
-    public void setLit(boolean lit) {
-        this.lit = lit;
-    }
-
-    /**
-     * @return the powered
-     */
-    public boolean isPowered() {
-        return powered;
-    }
-
-    /**
-     * @param powered the powered to set
-     */
-    public void setPowered(boolean powered) {
-        this.powered = powered;
-    }
-
-    /**
-     * @return the open
-     */
-    public boolean isOpen() {
-        return open;
-    }
-
-    /**
-     * @param open the open to set
-     */
-    public void setOpen(boolean open) {
-        this.open = open;
     }
 
     /**
@@ -248,6 +193,62 @@ public class EmbeddedStatusReport implements TransientArduinoStateGetterInterfac
     }
 
     /**
+     * @return the powered
+     */
+    public boolean isPowered() {
+        return powered;
+    }
+
+    /**
+     * @param powered the powered to set
+     */
+    public void setPowered(boolean powered) {
+        this.powered = powered;
+    }
+
+    /**
+     * @return the lit
+     */
+    public boolean isLit() {
+        return lit;
+    }
+
+    /**
+     * @param lit the lit to set
+     */
+    public void setLit(boolean lit) {
+        this.lit = lit;
+    }
+
+    /**
+     * @return the misting
+     */
+    public boolean isMisting() {
+        return misting;
+    }
+
+    /**
+     * @param misting the misting to set
+     */
+    public void setMisting(boolean misting) {
+        this.misting = misting;
+    }
+
+    /**
+     * @return the open
+     */
+    public boolean isOpen() {
+        return open;
+    }
+
+    /**
+     * @param open the open to set
+     */
+    public void setOpen(boolean open) {
+        this.open = open;
+    }
+
+    /**
      * @return the dehumidifying
      */
     public boolean isDehumidifying() {
@@ -302,6 +303,4 @@ public class EmbeddedStatusReport implements TransientArduinoStateGetterInterfac
     public void setLocked(boolean locked) {
         this.locked = locked;
     }
-
-
 }

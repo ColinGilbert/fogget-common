@@ -25,11 +25,12 @@ public class ArduinoProxy implements PersistentArduinoStateGetterInterface, Pers
     }
 
     public void updateTransientState(TransientArduinoState state) {
-        setTimeOfDay(state.getTimeOfDay());
+        setTimestamp(state.getTimestamp());
         setReservoirLevel(state.getReservoirLevel());
         setNutrientSolutionLevel(state.getNutrientSolutionLevel());
-        setLit(state.isLit());
         setPowered(state.isPowered());
+        setLit(state.isLit());
+        setMisting(state.isMisting());
         setOpen(state.isOpen());
         setTimeLeftUnlocked(state.getTimeLeftUnlocked());
         setUpperChamberHumidity(state.getUpperChamberHumidity());
@@ -59,11 +60,12 @@ public class ArduinoProxy implements PersistentArduinoStateGetterInterface, Pers
 
     public TransientArduinoState extractTransientState() {
         TransientArduinoState results = new TransientArduinoState();
-        results.setTimeOfDay(getTimeOfDay());
+        results.setTimestamp(getTimestamp());
         results.setReservoirLevel(getReservoirLevel());
         results.setNutrientSolutionLevel(getNutrientSolutionLevel());
-        results.setLit(isLit());
         results.setPowered(isPowered());
+        results.setLit(isLit());
+        results.setMisting(isMisting());
         results.setOpen(isOpen());
         results.setTimeLeftUnlocked(getTimeLeftUnlocked());
         results.setUpperChamberHumidity(getUpperChamberHumidity());
@@ -77,17 +79,20 @@ public class ArduinoProxy implements PersistentArduinoStateGetterInterface, Pers
     }
 
     // Transient state
-    private long timeOfDay;
+    private long timestamp;
     private float reservoirLevel;
     private float nutrientSolutionLevel;
-    private boolean lit;
-    private boolean powered;
-    private boolean open;
+
     private long timeLeftUnlocked;
     private float upperChamberHumidity;
     private float upperChamberTemperature;
     private float lowerChamberTemperature;
     private int currentCO2PPM;
+
+    private boolean powered;
+    private boolean lit;
+    private boolean misting;
+    private boolean open;
     private boolean dehumidifying;
     private boolean cooling;
     private boolean injectingCO2;
@@ -111,17 +116,17 @@ public class ArduinoProxy implements PersistentArduinoStateGetterInterface, Pers
     private int targetCO2PPM;
 
     /**
-     * @return the timeOfDay
+     * @return the timestamp
      */
-    public long getTimeOfDay() {
-        return timeOfDay;
+    public long getTimestamp() {
+        return timestamp;
     }
 
     /**
-     * @param timeOfDay the timeOfDay to set
+     * @param timestamp the timestamp to set
      */
-    public void setTimeOfDay(long timeOfDay) {
-        this.timeOfDay = timeOfDay;
+    public void setTimestamp(long timestamp) {
+        this.timestamp = timestamp;
     }
 
     /**
@@ -150,48 +155,6 @@ public class ArduinoProxy implements PersistentArduinoStateGetterInterface, Pers
      */
     public void setNutrientSolutionLevel(float nutrientSolutionLevel) {
         this.nutrientSolutionLevel = nutrientSolutionLevel;
-    }
-
-    /**
-     * @return the lit
-     */
-    public boolean isLit() {
-        return lit;
-    }
-
-    /**
-     * @param lit the lit to set
-     */
-    public void setLit(boolean lit) {
-        this.lit = lit;
-    }
-
-    /**
-     * @return the powered
-     */
-    public boolean isPowered() {
-        return powered;
-    }
-
-    /**
-     * @param powered the powered to set
-     */
-    public void setPowered(boolean powered) {
-        this.powered = powered;
-    }
-
-    /**
-     * @return the open
-     */
-    public boolean isOpen() {
-        return open;
-    }
-
-    /**
-     * @param open the open to set
-     */
-    public void setOpen(boolean open) {
-        this.open = open;
     }
 
     /**
@@ -262,6 +225,62 @@ public class ArduinoProxy implements PersistentArduinoStateGetterInterface, Pers
      */
     public void setCurrentCO2PPM(int currentCO2PPM) {
         this.currentCO2PPM = currentCO2PPM;
+    }
+
+    /**
+     * @return the powered
+     */
+    public boolean isPowered() {
+        return powered;
+    }
+
+    /**
+     * @param powered the powered to set
+     */
+    public void setPowered(boolean powered) {
+        this.powered = powered;
+    }
+
+    /**
+     * @return the lit
+     */
+    public boolean isLit() {
+        return lit;
+    }
+
+    /**
+     * @param lit the lit to set
+     */
+    public void setLit(boolean lit) {
+        this.lit = lit;
+    }
+
+    /**
+     * @return the misting
+     */
+    public boolean isMisting() {
+        return misting;
+    }
+
+    /**
+     * @param misting the misting to set
+     */
+    public void setMisting(boolean misting) {
+        this.misting = misting;
+    }
+
+    /**
+     * @return the open
+     */
+    public boolean isOpen() {
+        return open;
+    }
+
+    /**
+     * @param open the open to set
+     */
+    public void setOpen(boolean open) {
+        this.open = open;
     }
 
     /**
@@ -510,7 +529,8 @@ public class ArduinoProxy implements PersistentArduinoStateGetterInterface, Pers
     }
 
     /**
-     * @param targetUpperChamberTemperature the targetUpperChamberTemperature to set
+     * @param targetUpperChamberTemperature the targetUpperChamberTemperature to
+     * set
      */
     public void setTargetUpperChamberTemperature(float targetUpperChamberTemperature) {
         this.targetUpperChamberTemperature = targetUpperChamberTemperature;
@@ -524,7 +544,8 @@ public class ArduinoProxy implements PersistentArduinoStateGetterInterface, Pers
     }
 
     /**
-     * @param targetLowerChamberTemperature the targetLowerChamberTemperature to set
+     * @param targetLowerChamberTemperature the targetLowerChamberTemperature to
+     * set
      */
     public void setTargetLowerChamberTemperature(float targetLowerChamberTemperature) {
         this.targetLowerChamberTemperature = targetLowerChamberTemperature;

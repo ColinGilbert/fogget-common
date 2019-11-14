@@ -11,15 +11,17 @@ package noob.plantsystem.common;
  */
 public interface TransientArduinoStateGetterInterface {
 
-    public long getTimeOfDay();
+    public long getTimestamp();
 
     public float getReservoirLevel();
     
     public float getNutrientSolutionLevel();
     
+    public boolean isPowered();
+
     public boolean isLit();
     
-    public boolean isPowered();
+    public boolean isMisting();
     
     public boolean isLocked();
     

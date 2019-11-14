@@ -10,17 +10,18 @@ package noob.plantsystem.common;
  * @author noob
  */
 public class TransientArduinoState implements TransientArduinoStateSetterInterface, TransientArduinoStateGetterInterface {
-    private long timeOfDay;
+    private long timestamp;
+    private long timeLeftUnlocked;
     private float reservoirLevel;
     private float nutrientSolutionLevel;
-    private boolean lit;
-    private boolean powered;
-    private boolean open;
-    private long timeLeftUnlocked;
     private float upperChamberHumidity;
     private float upperChamberTemperature;
     private float lowerChamberTemperature;
     private int currentCO2PPM;
+    private boolean lit;
+    private boolean powered;
+    private boolean misting;
+    private boolean open;
     private boolean dehumidifying;
     private boolean cooling;
     private boolean injectingCO2;
@@ -29,15 +30,29 @@ public class TransientArduinoState implements TransientArduinoStateSetterInterfa
     /**
      * @return the timeOfDay
      */
-    public long getTimeOfDay() {
-        return timeOfDay;
+    public long getTimestamp() {
+        return timestamp;
     }
 
     /**
      * @param timeOfDay the timeOfDay to set
      */
-    public void setTimeOfDay(long timeOfDay) {
-        this.timeOfDay = timeOfDay;
+    public void setTimestamp(long timestamp) {
+        this.timestamp = timestamp;
+    }
+
+    /**
+     * @return the timeLeftUnlocked
+     */
+    public long getTimeLeftUnlocked() {
+        return timeLeftUnlocked;
+    }
+
+    /**
+     * @param timeLeftUnlocked the timeLeftUnlocked to set
+     */
+    public void setTimeLeftUnlocked(long timeLeftUnlocked) {
+        this.timeLeftUnlocked = timeLeftUnlocked;
     }
 
     /**
@@ -66,62 +81,6 @@ public class TransientArduinoState implements TransientArduinoStateSetterInterfa
      */
     public void setNutrientSolutionLevel(float nutrientSolutionLevel) {
         this.nutrientSolutionLevel = nutrientSolutionLevel;
-    }
-
-    /**
-     * @return the lit
-     */
-    public boolean isLit() {
-        return lit;
-    }
-
-    /**
-     * @param lit the lit to set
-     */
-    public void setLit(boolean lit) {
-        this.lit = lit;
-    }
-
-    /**
-     * @return the powered
-     */
-    public boolean isPowered() {
-        return powered;
-    }
-
-    /**
-     * @param powered the powered to set
-     */
-    public void setPowered(boolean powered) {
-        this.powered = powered;
-    }
-
-    /**
-     * @return the open
-     */
-    public boolean isOpen() {
-        return open;
-    }
-
-    /**
-     * @param open the open to set
-     */
-    public void setOpen(boolean open) {
-        this.open = open;
-    }
-
-    /**
-     * @return the timeLeftUnlocked
-     */
-    public long getTimeLeftUnlocked() {
-        return timeLeftUnlocked;
-    }
-
-    /**
-     * @param timeLeftUnlocked the timeLeftUnlocked to set
-     */
-    public void setTimeLeftUnlocked(long timeLeftUnlocked) {
-        this.timeLeftUnlocked = timeLeftUnlocked;
     }
 
     /**
@@ -181,6 +140,62 @@ public class TransientArduinoState implements TransientArduinoStateSetterInterfa
     }
 
     /**
+     * @return the lit
+     */
+    public boolean isLit() {
+        return lit;
+    }
+
+    /**
+     * @param lit the lit to set
+     */
+    public void setLit(boolean lit) {
+        this.lit = lit;
+    }
+
+    /**
+     * @return the powered
+     */
+    public boolean isPowered() {
+        return powered;
+    }
+
+    /**
+     * @param powered the powered to set
+     */
+    public void setPowered(boolean powered) {
+        this.powered = powered;
+    }
+
+    /**
+     * @return the misting
+     */
+    public boolean isMisting() {
+        return misting;
+    }
+
+    /**
+     * @param misting the misting to set
+     */
+    public void setMisting(boolean misting) {
+        this.misting = misting;
+    }
+
+    /**
+     * @return the open
+     */
+    public boolean isOpen() {
+        return open;
+    }
+
+    /**
+     * @param open the open to set
+     */
+    public void setOpen(boolean open) {
+        this.open = open;
+    }
+
+    /**
      * @return the dehumidifying
      */
     public boolean isDehumidifying() {
@@ -235,5 +250,4 @@ public class TransientArduinoState implements TransientArduinoStateSetterInterfa
     public void setLocked(boolean locked) {
         this.locked = locked;
     }
-
 }

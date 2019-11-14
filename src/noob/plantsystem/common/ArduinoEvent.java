@@ -9,6 +9,8 @@ package noob.plantsystem.common;
  *
  * @author noob
  */
+
+
 public class ArduinoEvent {
     
     public long getUid() {

@@ -11,15 +11,17 @@ package noob.plantsystem.common;
  */
 public interface TransientArduinoStateSetterInterface {
 
-    public void setTimeOfDay(long arg);
+    public void setTimestamp(long arg);
 
     public void setReservoirLevel(float arg);
 
     public void setNutrientSolutionLevel(float arg);
+    
+    public void setPowered(boolean arg);
 
     public void setLit(boolean arg);
 
-    public void setPowered(boolean arg);
+    public void setMisting(boolean arg);
 
     public void setLocked(boolean arg);
 
