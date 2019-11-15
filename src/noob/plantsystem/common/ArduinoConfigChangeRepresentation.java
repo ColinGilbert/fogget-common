@@ -66,19 +66,33 @@ public class ArduinoConfigChangeRepresentation implements PersistentArduinoState
     }
 
     public void changeAll() {
-        changingMistingInterval = false;
-        changingMistingDuration = false;
-        changingStatusPushInterval = false;
-        changingNutrientsPPM = false;
-        changingNutrientSolutionRatio = false;
-        changingLightsOnTime = false;
-        changingLightsOffTime = false;
-        changingTargetUpperChamberHumidity = false;
-        changingTargetUpperChamberTemperature = false;
-        changingTargetLowerChamberTemperature = false;
-        changingTargetCO2PPM = false;
+        changingMistingInterval = true;
+        changingMistingDuration = true;
+        changingStatusPushInterval = true;
+        changingNutrientsPPM = true;
+        changingNutrientSolutionRatio = true;
+        changingLightsOnTime = true;
+        changingLightsOffTime = true;
+        changingTargetUpperChamberHumidity = true;
+        changingTargetUpperChamberTemperature = true;
+        changingTargetLowerChamberTemperature = true;
+        changingTargetCO2PPM = true;
     }
 
+    public boolean hasChanges() {
+        return        changingMistingInterval ||//= true;
+        changingMistingDuration ||//= true;
+        changingStatusPushInterval ||// = true;
+        changingNutrientsPPM ||//= true;
+        changingNutrientSolutionRatio ||// = true;
+        changingLightsOnTime ||//= true;
+        changingLightsOffTime ||
+        changingTargetUpperChamberHumidity ||
+        changingTargetUpperChamberTemperature ||
+        changingTargetLowerChamberTemperature || 
+        changingTargetCO2PPM;
+    }
+    
     /**
      * @return the uid
      */
