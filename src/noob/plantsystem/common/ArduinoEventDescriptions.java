@@ -16,7 +16,7 @@ import noob.plantsystem.common.ArduinoEvent;
  * @author noob
  */
 public class ArduinoEventDescriptions {
-    
+
     public ArduinoEventDescriptions() {
         codes2descriptions = new HashMap<>();
         descriptions2codes = new HashMap<>();
@@ -27,39 +27,34 @@ public class ArduinoEventDescriptions {
         EmbeddedEventType events[] = EmbeddedEventType.values();
         for (EmbeddedEventType e : events) {
             codes2descriptions.put(e.ordinal(), e.toString());
+            descriptions2codes.put(e.toString(), e.ordinal());
         }
-        
-        for (Integer i : codes2descriptions.keySet())
-        {
-            String s = codes2descriptions.get(i);
-            descriptions2codes.put(s, i);
-        }
+
     }
-    
+
     public boolean exists(int arg) {
         return codes2descriptions.containsKey(arg);
     }
-    
+
     public boolean exists(String arg) {
         return codes2descriptions.containsValue(arg);
     }
-    
+
     public Pair<Boolean, Integer> getCode(String arg) {
-        if (descriptions2codes.containsValue(arg)) {
+        if (descriptions2codes.containsKey(arg)) {
             return new Pair<>(true, descriptions2codes.get(arg));
         }
-       
+
         return new Pair<>(false, -1);
     }
-    
 
     public Pair<Boolean, String> getDescription(int arg) {
-        if (codes2descriptions.containsValue(arg)) {
+        if (codes2descriptions.containsKey(arg)) {
             return new Pair<>(true, codes2descriptions.get(arg));
         }
         return new Pair<>(false, "");
     }
- 
+
     protected HashMap<Integer, String> codes2descriptions;
     protected HashMap<String, Integer> descriptions2codes;
 }

@@ -26,4 +26,8 @@ public class TopicStrings {
     static public String configPushToEmbedded() {
         return "configPushToEmbedded";
     }
+    
+    static public String descriptionsUpdateRequest() {
+        return "descriptionsUpdateRequest";
+    }
 }
