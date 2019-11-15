@@ -18,10 +18,7 @@ public class TopicStrings {
     static public String embeddedStatePush() {
         return "embeddedStatePush";
     }
-        static public String embeddedTransientStatePush() {
-        return "embeddedStatePush";
-    }
-    
+
     static public String stateControlRequest() {
         return "stateControlRequest";
     }
