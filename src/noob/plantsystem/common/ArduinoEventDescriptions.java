@@ -32,6 +32,7 @@ public class ArduinoEventDescriptions {
 
     }
 
+    
     public boolean exists(int arg) {
         return codes2descriptions.containsKey(arg);
     }
