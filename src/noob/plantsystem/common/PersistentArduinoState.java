@@ -11,16 +11,18 @@ import java.io.Serializable;
  *
  * @author noob
  */
-public class PersistentArduinoState implements PersistentArduinoStateGetterInterface, PersistentArduinoStateSetterInterface {
-        
+public class PersistentArduinoState {
+       
     private long uid;
     private int mistingInterval;
     private int mistingDuration;
     private int statusPushInterval;
     private int nutrientsPPM;
     private double nutrientSolutionRatio;
-    private long lightsOnTime;
-    private long lightsOffTime;
+    private int lightsOnHour;
+    private int lightsOffHour;
+    private int lightsOnMinute;
+    private int lightsOffMinute;
     private float targetUpperChamberHumidity;
     private float targetUpperChamberTemperature;
     private float targetLowerChamberTemperature;
@@ -34,24 +36,10 @@ public class PersistentArduinoState implements PersistentArduinoStateGetterInter
     }
 
     /**
-     * @param uid the uid to set
-     */
-    public void setUid(long uid) {
-        this.uid = uid;
-    }
-
-    /**
      * @return the mistingInterval
      */
     public int getMistingInterval() {
         return mistingInterval;
-    }
-
-    /**
-     * @param mistingInterval the mistingInterval to set
-     */
-    public void setMistingInterval(int mistingInterval) {
-        this.mistingInterval = mistingInterval;
     }
 
     /**
@@ -62,24 +50,10 @@ public class PersistentArduinoState implements PersistentArduinoStateGetterInter
     }
 
     /**
-     * @param mistingDuration the mistingDuration to set
-     */
-    public void setMistingDuration(int mistingDuration) {
-        this.mistingDuration = mistingDuration;
-    }
-
-    /**
-     * @return the statusUpdatePushInterval
+     * @return the statusPushInterval
      */
     public int getStatusPushInterval() {
         return statusPushInterval;
-    }
-
-    /**
-     * @param statusUpdatePushInterval the statusUpdatePushInterval to set
-     */
-    public void setStatusPushInterval(int statusUpdatePushInterval) {
-        this.statusPushInterval = statusUpdatePushInterval;
     }
 
     /**
@@ -90,13 +64,6 @@ public class PersistentArduinoState implements PersistentArduinoStateGetterInter
     }
 
     /**
-     * @param nutrientsPPM the nutrientsPPM to set
-     */
-    public void setNutrientsPPM(int nutrientsPPM) {
-        this.nutrientsPPM = nutrientsPPM;
-    }
-
-    /**
      * @return the nutrientSolutionRatio
      */
     public double getNutrientSolutionRatio() {
@@ -104,38 +71,31 @@ public class PersistentArduinoState implements PersistentArduinoStateGetterInter
     }
 
     /**
-     * @param nutrientSolutionRatio the nutrientSolutionRatio to set
+     * @return the lightsOnHour
      */
-    public void setNutrientSolutionRatio(double nutrientSolutionRatio) {
-        this.nutrientSolutionRatio = nutrientSolutionRatio;
+    public int getLightsOnHour() {
+        return lightsOnHour;
     }
 
     /**
-     * @return the lightsOnTime
+     * @return the lightsOffHour
      */
-    public long getLightsOnTime() {
-        return lightsOnTime;
+    public int getLightsOffHour() {
+        return lightsOffHour;
     }
 
     /**
-     * @param lightsOnTime the lightsOnTime to set
+     * @return the lightsOnMinute
      */
-    public void setLightsOnTime(long lightsOnTime) {
-        this.lightsOnTime = lightsOnTime;
+    public int getLightsOnMinute() {
+        return lightsOnMinute;
     }
 
     /**
-     * @return the lightsOffTime
+     * @return the lightsOffMinute
      */
-    public long getLightsOffTime() {
-        return lightsOffTime;
-    }
-
-    /**
-     * @param lightsOffTime the lightsOffTime to set
-     */
-    public void setLightsOffTime(long lightsOffTime) {
-        this.lightsOffTime = lightsOffTime;
+    public int getLightsOffMinute() {
+        return lightsOffMinute;
     }
 
     /**
@@ -146,24 +106,10 @@ public class PersistentArduinoState implements PersistentArduinoStateGetterInter
     }
 
     /**
-     * @param targetUpperChamberHumidity the targetUpperChamberHumidity to set
-     */
-    public void setTargetUpperChamberHumidity(float targetUpperChamberHumidity) {
-        this.targetUpperChamberHumidity = targetUpperChamberHumidity;
-    }
-
-    /**
      * @return the targetUpperChamberTemperature
      */
     public float getTargetUpperChamberTemperature() {
         return targetUpperChamberTemperature;
-    }
-
-    /**
-     * @param targetUpperChamberTemperature the targetUpperChamberTemperature to set
-     */
-    public void setTargetUpperChamberTemperature(float targetUpperChamberTemperature) {
-        this.targetUpperChamberTemperature = targetUpperChamberTemperature;
     }
 
     /**
@@ -174,17 +120,101 @@ public class PersistentArduinoState implements PersistentArduinoStateGetterInter
     }
 
     /**
-     * @param targetLowerChamberTemperature the targetLowerChamberTemperature to set
-     */
-    public void setTargetLowerChamberTemperature(float targetLowerChamberTemperature) {
-        this.targetLowerChamberTemperature = targetLowerChamberTemperature;
-    }
-
-    /**
      * @return the targetCO2PPM
      */
     public int getTargetCO2PPM() {
         return targetCO2PPM;
+    }
+
+    /**
+     * @param uid the uid to set
+     */
+    public void setUid(long uid) {
+        this.uid = uid;
+    }
+
+    /**
+     * @param mistingInterval the mistingInterval to set
+     */
+    public void setMistingInterval(int mistingInterval) {
+        this.mistingInterval = mistingInterval;
+    }
+
+    /**
+     * @param mistingDuration the mistingDuration to set
+     */
+    public void setMistingDuration(int mistingDuration) {
+        this.mistingDuration = mistingDuration;
+    }
+
+    /**
+     * @param statusPushInterval the statusPushInterval to set
+     */
+    public void setStatusPushInterval(int statusPushInterval) {
+        this.statusPushInterval = statusPushInterval;
+    }
+
+    /**
+     * @param nutrientsPPM the nutrientsPPM to set
+     */
+    public void setNutrientsPPM(int nutrientsPPM) {
+        this.nutrientsPPM = nutrientsPPM;
+    }
+
+    /**
+     * @param nutrientSolutionRatio the nutrientSolutionRatio to set
+     */
+    public void setNutrientSolutionRatio(double nutrientSolutionRatio) {
+        this.nutrientSolutionRatio = nutrientSolutionRatio;
+    }
+
+    /**
+     * @param lightsOnHour the lightsOnHour to set
+     */
+    public void setLightsOnHour(int lightsOnHour) {
+        this.lightsOnHour = lightsOnHour;
+    }
+
+    /**
+     * @param lightsOffHour the lightsOffHour to set
+     */
+    public void setLightsOffHour(int lightsOffHour) {
+        this.lightsOffHour = lightsOffHour;
+    }
+
+    /**
+     * @param lightsOnMinute the lightsOnMinute to set
+     */
+    public void setLightsOnMinute(int lightsOnMinute) {
+        this.lightsOnMinute = lightsOnMinute;
+    }
+
+    /**
+     * @param lightsOffMinute the lightsOffMinute to set
+     */
+    public void setLightsOffMinute(int lightsOffMinute) {
+        this.lightsOffMinute = lightsOffMinute;
+    }
+
+    /**
+     * @param targetUpperChamberHumidity the targetUpperChamberHumidity to set
+     */
+    public void setTargetUpperChamberHumidity(float targetUpperChamberHumidity) {
+        this.targetUpperChamberHumidity = targetUpperChamberHumidity;
+    }
+
+    /**
+     * @param targetUpperChamberTemperature the targetUpperChamberTemperature to set
+     */
+    public void setTargetUpperChamberTemperature(float targetUpperChamberTemperature) {
+        this.targetUpperChamberTemperature = targetUpperChamberTemperature;
+    }
+
+    /**
+     * @param targetLowerChamberTemperature the targetLowerChamberTemperature to set
+     */
+    public void setTargetLowerChamberTemperature(float targetLowerChamberTemperature) {
+        this.targetLowerChamberTemperature = targetLowerChamberTemperature;
     }
 
     /**

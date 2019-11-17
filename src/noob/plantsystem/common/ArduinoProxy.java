@@ -10,8 +10,8 @@ package noob.plantsystem.common;
  * @author noob
  */
 public class ArduinoProxy  {
-    private PersistentArduinoState persistentState;
-    private TransientArduinoState transientState;
+    private PersistentArduinoState persistentState = new PersistentArduinoState();
+    private TransientArduinoState transientState = new TransientArduinoState();
 
     /**
      * @return the persistentState

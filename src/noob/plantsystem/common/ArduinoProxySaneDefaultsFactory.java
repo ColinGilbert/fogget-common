@@ -13,27 +13,21 @@ public class ArduinoProxySaneDefaultsFactory {
 
     static public ArduinoProxy get() {
         PersistentArduinoState persistentState = new PersistentArduinoState();
-        TransientArduinoState transientState = new TransientArduinoState();
-
-        ArduinoProxy proxy = new ArduinoProxy();
-        
-        transientState.setPowered(true);
-        transientState.setLit(true);
         persistentState.setUid(-1); // Invalid UID that can easily be spotted.
         persistentState.setMistingInterval(15000); // Fifteen seconds time between mistings. 
         persistentState.setMistingDuration(2000); // Two seconds misting time
         persistentState.setStatusPushInterval(1000); // One update per second
         persistentState.setNutrientSolutionRatio(0.01d);
-        persistentState.setLightsOnTime(-1); // Lights on time = -1 means always on
-        persistentState.setLightsOffTime(-1); // Lights off time = -1 also means always on 
+        persistentState.setLightsOnHour(0); 
+        persistentState.setLightsOnMinute(0);
+        persistentState.setLightsOffHour(0); 
+        persistentState.setLightsOffMinute(0);
         persistentState.setTargetUpperChamberHumidity(70.0f);
         persistentState.setTargetUpperChamberTemperature(25.0f);
         persistentState.setTargetLowerChamberTemperature(18.0f);
         persistentState.setTargetCO2PPM(12000);
-
-        proxy.setTransientState(transientState);
+        ArduinoProxy proxy = new ArduinoProxy();
         proxy.setPersistentState(persistentState);
-        
         return proxy;
     }
 }

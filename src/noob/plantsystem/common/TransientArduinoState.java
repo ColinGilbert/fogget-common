@@ -9,7 +9,7 @@ package noob.plantsystem.common;
  *
  * @author noob
  */
-public class TransientArduinoState implements TransientArduinoStateSetterInterface, TransientArduinoStateGetterInterface {
+public class TransientArduinoState {
     private long timestamp;
     private long timeLeftUnlocked;
     private float reservoirLevel;

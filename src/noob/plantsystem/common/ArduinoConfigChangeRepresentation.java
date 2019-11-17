@@ -12,67 +12,72 @@ package noob.plantsystem.common;
 public class ArduinoConfigChangeRepresentation {
 
     private PersistentArduinoState persistentState = new PersistentArduinoState();
-
     private boolean changingMistingInterval = false;
     private boolean changingMistingDuration = false;
     private boolean changingStatusPushInterval = false;
     private boolean changingNutrientsPPM = false;
     private boolean changingNutrientSolutionRatio = false;
-    private boolean changingLightsOnTime = false;
-    private boolean changingLightsOffTime = false;
+    private boolean changingLightsOnHour = false;
+    private boolean changingLightsOffHour = false;
+    private boolean changingLightsOnMinute = false;
+    private boolean changingLightsOffMinute = false;
     private boolean changingTargetUpperChamberHumidity = false;
     private boolean changingTargetUpperChamberTemperature = false;
     private boolean changingTargetLowerChamberTemperature = false;
     private boolean changingTargetCO2PPM = false;
 
-
     public void noChange() {
-        setChangingMistingInterval(false);
-        setChangingMistingDuration(false);
-        setChangingStatusPushInterval(false);
-        setChangingNutrientsPPM(false);
-        setChangingNutrientSolutionRatio(false);
-        setChangingLightsOnTime(false);
-        setChangingLightsOffTime(false);
-        setChangingTargetUpperChamberHumidity(false);
-        setChangingTargetUpperChamberTemperature(false);
-        setChangingTargetLowerChamberTemperature(false);
-        setChangingTargetCO2PPM(false);
+        setAll(false);
     }
 
     public void changeAll() {
-        setChangingMistingInterval(true);
-        setChangingMistingDuration(true);
-        setChangingStatusPushInterval(true);
-        setChangingNutrientsPPM(true);
-        setChangingNutrientSolutionRatio(true);
-        setChangingLightsOnTime(true);
-        setChangingLightsOffTime(true);
-        setChangingTargetUpperChamberHumidity(true);
-        setChangingTargetUpperChamberTemperature(true);
-        setChangingTargetLowerChamberTemperature(true);
-        setChangingTargetCO2PPM(true);
+        setAll(true);
+    }
+
+    protected void setAll(boolean arg) {
+        changingMistingInterval 
+                = changingMistingDuration
+                = changingStatusPushInterval
+                = changingNutrientsPPM
+                = changingNutrientSolutionRatio
+                = changingLightsOnHour
+                = changingLightsOffHour
+                = changingLightsOnMinute
+                = changingLightsOffMinute
+                = changingTargetUpperChamberHumidity
+                = changingTargetUpperChamberTemperature
+                = changingTargetLowerChamberTemperature
+                = changingTargetCO2PPM = arg;
     }
 
     public boolean hasChanges() {
-        return        isChangingMistingInterval() ||        //= true;
-        isChangingMistingDuration() ||        //= true;
-        isChangingStatusPushInterval() ||        // = true;
-        isChangingNutrientsPPM() ||        //= true;
-        isChangingNutrientSolutionRatio() ||        // = true;
-        isChangingLightsOnTime() ||        //= true;
-        isChangingLightsOffTime() ||
-        isChangingTargetUpperChamberHumidity() ||
-        isChangingTargetUpperChamberTemperature() ||
-        isChangingTargetLowerChamberTemperature() || 
-        isChangingTargetCO2PPM();
+        return changingMistingInterval
+                || changingMistingDuration
+                || changingStatusPushInterval
+                || changingNutrientsPPM
+                || changingNutrientSolutionRatio
+                || changingLightsOnHour
+                || changingLightsOffHour
+                || changingLightsOnMinute
+                || changingLightsOffMinute
+                || changingTargetUpperChamberHumidity
+                || changingTargetUpperChamberTemperature
+                || changingTargetLowerChamberTemperature
+                || changingTargetCO2PPM;
     }
-
+    
     /**
      * @return the persistentState
      */
     public PersistentArduinoState getPersistentState() {
         return persistentState;
+    }
+
+    /**
+     * @param persistentState the persistentState to set
+     */
+    public void setPersistentState(PersistentArduinoState persistentState) {
+        this.persistentState = persistentState;
     }
 
     /**
@@ -111,17 +116,31 @@ public class ArduinoConfigChangeRepresentation {
     }
 
     /**
-     * @return the changingLightsOnTime
+     * @return the changingLightsOnHour
      */
-    public boolean isChangingLightsOnTime() {
-        return changingLightsOnTime;
+    public boolean isChangingLightsOnHour() {
+        return changingLightsOnHour;
     }
 
     /**
-     * @return the changingLightsOffTime
+     * @return the changingLightsOffHour
      */
-    public boolean isChangingLightsOffTime() {
-        return changingLightsOffTime;
+    public boolean isChangingLightsOffHour() {
+        return changingLightsOffHour;
+    }
+
+    /**
+     * @return the changingLightsOnMinute
+     */
+    public boolean isChangingLightsOnMinute() {
+        return changingLightsOnMinute;
+    }
+
+    /**
+     * @return the changingLightsOffMinute
+     */
+    public boolean isChangingLightsOffMinute() {
+        return changingLightsOffMinute;
     }
 
     /**
@@ -150,13 +169,6 @@ public class ArduinoConfigChangeRepresentation {
      */
     public boolean isChangingTargetCO2PPM() {
         return changingTargetCO2PPM;
-    }
-
-    /**
-     * @param persistentState the persistentState to set
-     */
-    public void setPersistentState(PersistentArduinoState persistentState) {
-        this.persistentState = persistentState;
     }
 
     /**
@@ -195,17 +207,31 @@ public class ArduinoConfigChangeRepresentation {
     }
 
     /**
-     * @param changingLightsOnTime the changingLightsOnTime to set
+     * @param changingLightsOnHour the changingLightsOnHour to set
      */
-    public void setChangingLightsOnTime(boolean changingLightsOnTime) {
-        this.changingLightsOnTime = changingLightsOnTime;
+    public void setChangingLightsOnHour(boolean changingLightsOnHour) {
+        this.changingLightsOnHour = changingLightsOnHour;
     }
 
     /**
-     * @param changingLightsOffTime the changingLightsOffTime to set
+     * @param changingLightsOffHour the changingLightsOffHour to set
      */
-    public void setChangingLightsOffTime(boolean changingLightsOffTime) {
-        this.changingLightsOffTime = changingLightsOffTime;
+    public void setChangingLightsOffHour(boolean changingLightsOffHour) {
+        this.changingLightsOffHour = changingLightsOffHour;
+    }
+
+    /**
+     * @param changingLightsOnMinute the changingLightsOnMinute to set
+     */
+    public void setChangingLightsOnMinute(boolean changingLightsOnMinute) {
+        this.changingLightsOnMinute = changingLightsOnMinute;
+    }
+
+    /**
+     * @param changingLightsOffMinute the changingLightsOffMinute to set
+     */
+    public void setChangingLightsOffMinute(boolean changingLightsOffMinute) {
+        this.changingLightsOffMinute = changingLightsOffMinute;
     }
 
     /**
@@ -235,5 +261,6 @@ public class ArduinoConfigChangeRepresentation {
     public void setChangingTargetCO2PPM(boolean changingTargetCO2PPM) {
         this.changingTargetCO2PPM = changingTargetCO2PPM;
     }
+
 
 }
