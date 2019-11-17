@@ -9,20 +9,9 @@ package noob.plantsystem.common;
  *
  * @author noob
  */
-public class ArduinoConfigChangeRepresentation implements PersistentArduinoStateSetterInterface, PersistentArduinoStateGetterInterface {
+public class ArduinoConfigChangeRepresentation {
 
-    private long uid;
-    private int mistingInterval;
-    private int mistingDuration;
-    private int statusPushInterval;
-    private int nutrientsPPM;
-    private double nutrientSolutionRatio;
-    private long lightsOnTime;
-    private long lightsOffTime;
-    private float targetUpperChamberHumidity;
-    private float targetUpperChamberTemperature;
-    private float targetLowerChamberTemperature;
-    private int targetCO2PPM;
+    private PersistentArduinoState persistentState = new PersistentArduinoState();
 
     private boolean changingMistingInterval = false;
     private boolean changingMistingDuration = false;
@@ -36,231 +25,54 @@ public class ArduinoConfigChangeRepresentation implements PersistentArduinoState
     private boolean changingTargetLowerChamberTemperature = false;
     private boolean changingTargetCO2PPM = false;
 
-    public void updateConfigValues(ArduinoProxy state) {
-        uid = state.getUid();
-        mistingInterval = state.getMistingInterval();
-        mistingDuration = state.getMistingDuration();
-        statusPushInterval = state.getStatusPushInterval();
-        nutrientsPPM = state.getNutrientsPPM();
-        nutrientSolutionRatio = state.getNutrientSolutionRatio();
-        lightsOnTime = state.getLightsOnTime();
-        lightsOffTime = state.getLightsOffTime();
-        targetUpperChamberTemperature = state.getTargetUpperChamberTemperature();
-        targetUpperChamberHumidity = state.getTargetUpperChamberHumidity();
-        targetLowerChamberTemperature = state.getTargetLowerChamberTemperature();
-        targetCO2PPM = state.getTargetCO2PPM();
-    }
 
     public void noChange() {
-        changingMistingInterval = false;
-        changingMistingDuration = false;
-        changingStatusPushInterval = false;
-        changingNutrientsPPM = false;
-        changingNutrientSolutionRatio = false;
-        changingLightsOnTime = false;
-        changingLightsOffTime = false;
-        changingTargetUpperChamberHumidity = false;
-        changingTargetUpperChamberTemperature = false;
-        changingTargetLowerChamberTemperature = false;
-        changingTargetCO2PPM = false;
+        setChangingMistingInterval(false);
+        setChangingMistingDuration(false);
+        setChangingStatusPushInterval(false);
+        setChangingNutrientsPPM(false);
+        setChangingNutrientSolutionRatio(false);
+        setChangingLightsOnTime(false);
+        setChangingLightsOffTime(false);
+        setChangingTargetUpperChamberHumidity(false);
+        setChangingTargetUpperChamberTemperature(false);
+        setChangingTargetLowerChamberTemperature(false);
+        setChangingTargetCO2PPM(false);
     }
 
     public void changeAll() {
-        changingMistingInterval = true;
-        changingMistingDuration = true;
-        changingStatusPushInterval = true;
-        changingNutrientsPPM = true;
-        changingNutrientSolutionRatio = true;
-        changingLightsOnTime = true;
-        changingLightsOffTime = true;
-        changingTargetUpperChamberHumidity = true;
-        changingTargetUpperChamberTemperature = true;
-        changingTargetLowerChamberTemperature = true;
-        changingTargetCO2PPM = true;
+        setChangingMistingInterval(true);
+        setChangingMistingDuration(true);
+        setChangingStatusPushInterval(true);
+        setChangingNutrientsPPM(true);
+        setChangingNutrientSolutionRatio(true);
+        setChangingLightsOnTime(true);
+        setChangingLightsOffTime(true);
+        setChangingTargetUpperChamberHumidity(true);
+        setChangingTargetUpperChamberTemperature(true);
+        setChangingTargetLowerChamberTemperature(true);
+        setChangingTargetCO2PPM(true);
     }
 
     public boolean hasChanges() {
-        return        changingMistingInterval ||//= true;
-        changingMistingDuration ||//= true;
-        changingStatusPushInterval ||// = true;
-        changingNutrientsPPM ||//= true;
-        changingNutrientSolutionRatio ||// = true;
-        changingLightsOnTime ||//= true;
-        changingLightsOffTime ||
-        changingTargetUpperChamberHumidity ||
-        changingTargetUpperChamberTemperature ||
-        changingTargetLowerChamberTemperature || 
-        changingTargetCO2PPM;
-    }
-    
-    /**
-     * @return the uid
-     */
-    public long getUid() {
-        return uid;
+        return        isChangingMistingInterval() ||        //= true;
+        isChangingMistingDuration() ||        //= true;
+        isChangingStatusPushInterval() ||        // = true;
+        isChangingNutrientsPPM() ||        //= true;
+        isChangingNutrientSolutionRatio() ||        // = true;
+        isChangingLightsOnTime() ||        //= true;
+        isChangingLightsOffTime() ||
+        isChangingTargetUpperChamberHumidity() ||
+        isChangingTargetUpperChamberTemperature() ||
+        isChangingTargetLowerChamberTemperature() || 
+        isChangingTargetCO2PPM();
     }
 
     /**
-     * @param uid the uid to set
+     * @return the persistentState
      */
-    public void setUid(long uid) {
-        this.uid = uid;
-    }
-
-    /**
-     * @return the mistingInterval
-     */
-    public int getMistingInterval() {
-        return mistingInterval;
-    }
-
-    /**
-     * @param mistingInterval the mistingInterval to set
-     */
-    public void setMistingInterval(int mistingInterval) {
-        this.mistingInterval = mistingInterval;
-    }
-
-    /**
-     * @return the mistingDuration
-     */
-    public int getMistingDuration() {
-        return mistingDuration;
-    }
-
-    /**
-     * @param mistingDuration the mistingDuration to set
-     */
-    public void setMistingDuration(int mistingDuration) {
-        this.mistingDuration = mistingDuration;
-    }
-
-    /**
-     * @return the statusPushInterval
-     */
-    public int getStatusPushInterval() {
-        return statusPushInterval;
-    }
-
-    /**
-     * @param statusPushInterval the statusPushInterval to set
-     */
-    public void setStatusPushInterval(int statusPushInterval) {
-        this.statusPushInterval = statusPushInterval;
-    }
-
-    /**
-     * @return the nutrientsPPM
-     */
-    public int getNutrientsPPM() {
-        return nutrientsPPM;
-    }
-
-    /**
-     * @param nutrientsPPM the nutrientsPPM to set
-     */
-    public void setNutrientsPPM(int nutrientsPPM) {
-        this.nutrientsPPM = nutrientsPPM;
-    }
-
-    /**
-     * @return the nutrientSolutionRatio
-     */
-    public double getNutrientSolutionRatio() {
-        return nutrientSolutionRatio;
-    }
-
-    /**
-     * @param nutrientSolutionRatio the nutrientSolutionRatio to set
-     */
-    public void setNutrientSolutionRatio(double nutrientSolutionRatio) {
-        this.nutrientSolutionRatio = nutrientSolutionRatio;
-    }
-
-    /**
-     * @return the lightsOnTime
-     */
-    public long getLightsOnTime() {
-        return lightsOnTime;
-    }
-
-    /**
-     * @param lightsOnTime the lightsOnTime to set
-     */
-    public void setLightsOnTime(long lightsOnTime) {
-        this.lightsOnTime = lightsOnTime;
-    }
-
-    /**
-     * @return the lightsOffTime
-     */
-    public long getLightsOffTime() {
-        return lightsOffTime;
-    }
-
-    /**
-     * @param lightsOffTime the lightsOffTime to set
-     */
-    public void setLightsOffTime(long lightsOffTime) {
-        this.lightsOffTime = lightsOffTime;
-    }
-
-    /**
-     * @return the targetUpperChamberHumidity
-     */
-    public float getTargetUpperChamberHumidity() {
-        return targetUpperChamberHumidity;
-    }
-
-    /**
-     * @param targetUpperChamberHumidity the targetUpperChamberHumidity to set
-     */
-    public void setTargetUpperChamberHumidity(float targetUpperChamberHumidity) {
-        this.targetUpperChamberHumidity = targetUpperChamberHumidity;
-    }
-
-    /**
-     * @return the targetUpperChamberTemperature
-     */
-    public float getTargetUpperChamberTemperature() {
-        return targetUpperChamberTemperature;
-    }
-
-    /**
-     * @param targetUpperChamberTemperature the targetUpperChamberTemperature to
-     * set
-     */
-    public void setTargetUpperChamberTemperature(float targetUpperChamberTemperature) {
-        this.targetUpperChamberTemperature = targetUpperChamberTemperature;
-    }
-
-    /**
-     * @return the targetLowerChamberTemperature
-     */
-    public float getTargetLowerChamberTemperature() {
-        return targetLowerChamberTemperature;
-    }
-
-    /**
-     * @param targetLowerChamberTemperature the targetLowerChamberTemperature to
-     * set
-     */
-    public void setTargetLowerChamberTemperature(float targetLowerChamberTemperature) {
-        this.targetLowerChamberTemperature = targetLowerChamberTemperature;
-    }
-
-    /**
-     * @return the targetCO2PPM
-     */
-    public int getTargetCO2PPM() {
-        return targetCO2PPM;
-    }
-
-    /**
-     * @param targetCO2PPM the targetCO2PPM to set
-     */
-    public void setTargetCO2PPM(int targetCO2PPM) {
-        this.targetCO2PPM = targetCO2PPM;
+    public PersistentArduinoState getPersistentState() {
+        return persistentState;
     }
 
     /**
@@ -271,24 +83,10 @@ public class ArduinoConfigChangeRepresentation implements PersistentArduinoState
     }
 
     /**
-     * @param changingMistingInterval the changingMistingInterval to set
-     */
-    public void setChangingMistingInterval(boolean changingMistingInterval) {
-        this.changingMistingInterval = changingMistingInterval;
-    }
-
-    /**
      * @return the changingMistingDuration
      */
     public boolean isChangingMistingDuration() {
         return changingMistingDuration;
-    }
-
-    /**
-     * @param changingMistingDuration the changingMistingDuration to set
-     */
-    public void setChangingMistingDuration(boolean changingMistingDuration) {
-        this.changingMistingDuration = changingMistingDuration;
     }
 
     /**
@@ -299,24 +97,10 @@ public class ArduinoConfigChangeRepresentation implements PersistentArduinoState
     }
 
     /**
-     * @param changingStatusPushInterval the changingStatusPushInterval to set
-     */
-    public void setChangingStatusPushInterval(boolean changingStatusPushInterval) {
-        this.changingStatusPushInterval = changingStatusPushInterval;
-    }
-
-    /**
      * @return the changingNutrientsPPM
      */
     public boolean isChangingNutrientsPPM() {
         return changingNutrientsPPM;
-    }
-
-    /**
-     * @param changingNutrientsPPM the changingNutrientsPPM to set
-     */
-    public void setChangingNutrientsPPM(boolean changingNutrientsPPM) {
-        this.changingNutrientsPPM = changingNutrientsPPM;
     }
 
     /**
@@ -327,25 +111,10 @@ public class ArduinoConfigChangeRepresentation implements PersistentArduinoState
     }
 
     /**
-     * @param changingNutrientSolutionRatio the changingNutrientSolutionRatio to
-     * set
-     */
-    public void setChangingNutrientSolutionRatio(boolean changingNutrientSolutionRatio) {
-        this.changingNutrientSolutionRatio = changingNutrientSolutionRatio;
-    }
-
-    /**
      * @return the changingLightsOnTime
      */
     public boolean isChangingLightsOnTime() {
         return changingLightsOnTime;
-    }
-
-    /**
-     * @param changingLightsOnTime the changingLightsOnTime to set
-     */
-    public void setChangingLightsOnTime(boolean changingLightsOnTime) {
-        this.changingLightsOnTime = changingLightsOnTime;
     }
 
     /**
@@ -356,25 +125,10 @@ public class ArduinoConfigChangeRepresentation implements PersistentArduinoState
     }
 
     /**
-     * @param changingLightsOffTime the changingLightsOffTime to set
-     */
-    public void setChangingLightsOffTime(boolean changingLightsOffTime) {
-        this.changingLightsOffTime = changingLightsOffTime;
-    }
-
-    /**
      * @return the changingTargetUpperChamberHumidity
      */
     public boolean isChangingTargetUpperChamberHumidity() {
         return changingTargetUpperChamberHumidity;
-    }
-
-    /**
-     * @param changingTargetUpperChamberHumidity the
-     * changingTargetUpperChamberHumidity to set
-     */
-    public void setChangingTargetUpperChamberHumidity(boolean changingTargetUpperChamberHumidity) {
-        this.changingTargetUpperChamberHumidity = changingTargetUpperChamberHumidity;
     }
 
     /**
@@ -385,14 +139,6 @@ public class ArduinoConfigChangeRepresentation implements PersistentArduinoState
     }
 
     /**
-     * @param changingTargetUpperChamberTemperature the
-     * changingTargetUpperChamberTemperature to set
-     */
-    public void setChangingTargetUpperChamberTemperature(boolean changingTargetUpperChamberTemperature) {
-        this.changingTargetUpperChamberTemperature = changingTargetUpperChamberTemperature;
-    }
-
-    /**
      * @return the changingTargetLowerChamberTemperature
      */
     public boolean isChangingTargetLowerChamberTemperature() {
@@ -400,18 +146,87 @@ public class ArduinoConfigChangeRepresentation implements PersistentArduinoState
     }
 
     /**
-     * @param changingTargetLowerChamberTemperature the
-     * changingTargetLowerChamberTemperature to set
-     */
-    public void setChangingTargetLowerChamberTemperature(boolean changingTargetLowerChamberTemperature) {
-        this.changingTargetLowerChamberTemperature = changingTargetLowerChamberTemperature;
-    }
-
-    /**
      * @return the changingTargetCO2PPM
      */
     public boolean isChangingTargetCO2PPM() {
         return changingTargetCO2PPM;
+    }
+
+    /**
+     * @param persistentState the persistentState to set
+     */
+    public void setPersistentState(PersistentArduinoState persistentState) {
+        this.persistentState = persistentState;
+    }
+
+    /**
+     * @param changingMistingInterval the changingMistingInterval to set
+     */
+    public void setChangingMistingInterval(boolean changingMistingInterval) {
+        this.changingMistingInterval = changingMistingInterval;
+    }
+
+    /**
+     * @param changingMistingDuration the changingMistingDuration to set
+     */
+    public void setChangingMistingDuration(boolean changingMistingDuration) {
+        this.changingMistingDuration = changingMistingDuration;
+    }
+
+    /**
+     * @param changingStatusPushInterval the changingStatusPushInterval to set
+     */
+    public void setChangingStatusPushInterval(boolean changingStatusPushInterval) {
+        this.changingStatusPushInterval = changingStatusPushInterval;
+    }
+
+    /**
+     * @param changingNutrientsPPM the changingNutrientsPPM to set
+     */
+    public void setChangingNutrientsPPM(boolean changingNutrientsPPM) {
+        this.changingNutrientsPPM = changingNutrientsPPM;
+    }
+
+    /**
+     * @param changingNutrientSolutionRatio the changingNutrientSolutionRatio to set
+     */
+    public void setChangingNutrientSolutionRatio(boolean changingNutrientSolutionRatio) {
+        this.changingNutrientSolutionRatio = changingNutrientSolutionRatio;
+    }
+
+    /**
+     * @param changingLightsOnTime the changingLightsOnTime to set
+     */
+    public void setChangingLightsOnTime(boolean changingLightsOnTime) {
+        this.changingLightsOnTime = changingLightsOnTime;
+    }
+
+    /**
+     * @param changingLightsOffTime the changingLightsOffTime to set
+     */
+    public void setChangingLightsOffTime(boolean changingLightsOffTime) {
+        this.changingLightsOffTime = changingLightsOffTime;
+    }
+
+    /**
+     * @param changingTargetUpperChamberHumidity the changingTargetUpperChamberHumidity to set
+     */
+    public void setChangingTargetUpperChamberHumidity(boolean changingTargetUpperChamberHumidity) {
+        this.changingTargetUpperChamberHumidity = changingTargetUpperChamberHumidity;
+    }
+
+    /**
+     * @param changingTargetUpperChamberTemperature the changingTargetUpperChamberTemperature to set
+     */
+    public void setChangingTargetUpperChamberTemperature(boolean changingTargetUpperChamberTemperature) {
+        this.changingTargetUpperChamberTemperature = changingTargetUpperChamberTemperature;
+    }
+
+    /**
+     * @param changingTargetLowerChamberTemperature the changingTargetLowerChamberTemperature to set
+     */
+    public void setChangingTargetLowerChamberTemperature(boolean changingTargetLowerChamberTemperature) {
+        this.changingTargetLowerChamberTemperature = changingTargetLowerChamberTemperature;
     }
 
     /**
