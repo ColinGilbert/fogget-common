@@ -32,8 +32,8 @@ public class CommonValues {
     public final static String pushDescriptionsToUI = "pushDescriptionsToUI";
     public final static String getDescriptionsForUI = "getDescriptionsForUI";
     // Values for technical (domain-specific) data to help us make a sensible system.
-    public final static double minNutrientRatio = 0.0;
-    public final static double maxNutrientRatio = 0.01; // The following is due to the toxicity of nutrients in high concentrations towards plants.
+    public final static double minNutrientSolutionRatio = 0.0;
+    public final static double maxNutrientSolutionRatio = 0.01; // The following is due to the toxicity of nutrients in high concentrations towards plants.
     public final static float minHumidity = 0.0f;
     public final static float maxHumidity = 100.0f;
     public final static float minTargetTemperature = 10.0f;
