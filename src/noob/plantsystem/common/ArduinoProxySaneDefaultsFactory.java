@@ -27,6 +27,8 @@ public class ArduinoProxySaneDefaultsFactory {
         persistentState.setTargetLowerChamberTemperature(18.0f);
         persistentState.setTargetCO2PPM(12000);
         ArduinoProxy proxy = new ArduinoProxy();
+        
+        
         proxy.setPersistentState(persistentState);
         return proxy;
     }
