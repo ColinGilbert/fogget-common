@@ -39,7 +39,7 @@ public class CommonValues {
     public final static float minTargetTemperature = 10.0f;
     public final static float maxTargetTemperature = 80.0f;
     public final static float minPossibleTemperature = -273.6f;
-    public final static float maxPossibleTemperature = Integer.MAX_VALUE;           
+    public final static float maxPossibleTemperature = Float.MAX_VALUE;           
     public final static int minCO2PPM = 0;
     public final static int maxCO2PPM = 1000000;
     public final static int maxDescriptionLength = 512;
