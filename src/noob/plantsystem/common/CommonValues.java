@@ -23,7 +23,7 @@ public class CommonValues {
     public final static String updateEmbeddedStateRequestTopic = "updateEmbeddedStateRequest";
     public final static int maxMqttMessagesInFlight = 1000;
     public final static int eventPoolQueueSize = 100;
-    public final static int timeoutForEmbeddedSystem = 10000;
+    public final static int embeddedSystemTimeout = 10000;
    // The following are used by the localhost TCP connection that assists in transferring the backend information to the web UI.
     public final static String pushProxiesToUI = "pushProxiesToUI";
     public final static String getProxiesForUI = "getProxiesForUI";
