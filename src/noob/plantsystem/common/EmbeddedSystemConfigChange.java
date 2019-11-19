@@ -10,7 +10,7 @@ package noob.plantsystem.common;
  *
  * @author noob
  */
-public class ArduinoConfigChangeRepresentation {
+public class EmbeddedSystemConfigChange {
 
     private PersistentArduinoState persistentState = new PersistentArduinoState();
     private boolean changingMistingInterval = false;

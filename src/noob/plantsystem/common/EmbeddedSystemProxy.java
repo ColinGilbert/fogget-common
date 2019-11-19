@@ -9,7 +9,7 @@ package noob.plantsystem.common;
  *
  * @author noob
  */
-public class ArduinoProxy  {
+public class EmbeddedSystemProxy  {
     private PersistentArduinoState persistentState = new PersistentArduinoState();
     private TransientArduinoState transientState = new TransientArduinoState();
 

@@ -6,7 +6,7 @@
 package noob.plantsystem.common.test;
 
 import noob.plantsystem.common.EmbeddedStateChangeValidator;
-import noob.plantsystem.common.ArduinoConfigChangeRepresentation;
+import noob.plantsystem.common.EmbeddedSystemConfigChange;
 import noob.plantsystem.common.CommonValues;
 import org.testng.Assert;
 
@@ -24,7 +24,7 @@ import org.testng.annotations.Test;
  */
 public class TestValidation {
 
-    protected void testValues(ArduinoConfigChangeRepresentation representation, ArduinoConfigChangeRepresentation results, String arg) {
+    protected void testValues(EmbeddedSystemConfigChange representation, EmbeddedSystemConfigChange results, String arg) {
         String firstPart = "Validate State change representation FAIL in subset \"" + arg + " \". ";
         Assert.assertEquals(representation.isChangingMistingDuration(), results.isChangingMistingDuration(), firstPart + "Misting duration.");
         Assert.assertEquals(representation.isChangingMistingInterval(), results.isChangingMistingInterval(), firstPart + "Misting interval.");
@@ -44,8 +44,8 @@ public class TestValidation {
     //
     @Test
     public void targetstooHigh() {
-        ArduinoConfigChangeRepresentation representation = new ArduinoConfigChangeRepresentation();
- ArduinoConfigChangeRepresentation results = EmbeddedStateChangeValidator.validate(representation, Integer.MAX_VALUE, Integer.MAX_VALUE, Integer.MAX_VALUE, Integer.MAX_VALUE); // The values are zero as we're not testing the time.
+        EmbeddedSystemConfigChange representation = new EmbeddedSystemConfigChange();
+ EmbeddedSystemConfigChange results = EmbeddedStateChangeValidator.validate(representation, Integer.MAX_VALUE, Integer.MAX_VALUE, Integer.MAX_VALUE, Integer.MAX_VALUE); // The values are zero as we're not testing the time.
 
         representation.getPersistentState().setMistingDuration(Integer.MAX_VALUE);
         representation.setChangingMistingDuration(true);
@@ -89,7 +89,7 @@ public class TestValidation {
 
     @Test
     public void targetsTooLow() {
-        ArduinoConfigChangeRepresentation representation = new ArduinoConfigChangeRepresentation();
+        EmbeddedSystemConfigChange representation = new EmbeddedSystemConfigChange();
 
         representation.getPersistentState().setMistingDuration(Integer.MIN_VALUE);
         representation.setChangingMistingDuration(true);
@@ -129,7 +129,7 @@ public class TestValidation {
         representation.getPersistentState().setTargetCO2PPM(Integer.MIN_VALUE);
         representation.setChangingTargetCO2PPM(true);
 
-        ArduinoConfigChangeRepresentation results = EmbeddedStateChangeValidator.validate(representation, Integer.MIN_VALUE, Integer.MIN_VALUE, Integer.MIN_VALUE, Integer.MIN_VALUE); // The values are zero as we're not testing the time.
+        EmbeddedSystemConfigChange results = EmbeddedStateChangeValidator.validate(representation, Integer.MIN_VALUE, Integer.MIN_VALUE, Integer.MIN_VALUE, Integer.MIN_VALUE); // The values are zero as we're not testing the time.
 
         testValues(representation, results, "MIN_VALUE");
     }
@@ -139,80 +139,80 @@ public class TestValidation {
 
     @Test
     public void nonsenseOnTimeValuesHoursGoodMinutesLow() {
-        ArduinoConfigChangeRepresentation representation = new ArduinoConfigChangeRepresentation();
+        EmbeddedSystemConfigChange representation = new EmbeddedSystemConfigChange();
         representation.getPersistentState().setLightsOnMinute(-1);
         representation.setChangingLightsOnMinute(true);
-        ArduinoConfigChangeRepresentation results = EmbeddedStateChangeValidator.validate(representation, validHighHour, validHighMinute, 0, 0); // The values are zero as we're not testing the time.
+        EmbeddedSystemConfigChange results = EmbeddedStateChangeValidator.validate(representation, validHighHour, validHighMinute, 0, 0); // The values are zero as we're not testing the time.
         testValues(representation, results, "LIGHTS ON: hours good, minutes too small");
 
     }
 
     @Test
     public void nonsenseOnTimeValuesHoursGoodMinutesHigh() {
-        ArduinoConfigChangeRepresentation representation = new ArduinoConfigChangeRepresentation();
+        EmbeddedSystemConfigChange representation = new EmbeddedSystemConfigChange();
         representation.getPersistentState().setLightsOnMinute(60);
         representation.setChangingLightsOnMinute(true);
-        ArduinoConfigChangeRepresentation results = EmbeddedStateChangeValidator.validate(representation, validHighHour, validHighMinute, 0, 0); // The values are zero as we're not testing the time.
+        EmbeddedSystemConfigChange results = EmbeddedStateChangeValidator.validate(representation, validHighHour, validHighMinute, 0, 0); // The values are zero as we're not testing the time.
         testValues(representation, results, "LIGHTS ON: hours good, minutes too big");
 
     }
 
     @Test
     public void nonsenseOnTimeValuesHoursHighMinutesGood() {
-        ArduinoConfigChangeRepresentation representation = new ArduinoConfigChangeRepresentation();
+        EmbeddedSystemConfigChange representation = new EmbeddedSystemConfigChange();
         representation.getPersistentState().setLightsOnHour(24);
         representation.setChangingLightsOnHour(true);
-        ArduinoConfigChangeRepresentation results = EmbeddedStateChangeValidator.validate(representation, validHighHour, validHighMinute, 0, 0); // The values are zero as we're not testing the time.
+        EmbeddedSystemConfigChange results = EmbeddedStateChangeValidator.validate(representation, validHighHour, validHighMinute, 0, 0); // The values are zero as we're not testing the time.
         testValues(representation, results, "LIGHTS ON: hours too big, minutes good");
 
     }
 
     @Test
     public void nonsenseOnTimeValuesHoursLowMinutesGood() {
-        ArduinoConfigChangeRepresentation representation = new ArduinoConfigChangeRepresentation();
+        EmbeddedSystemConfigChange representation = new EmbeddedSystemConfigChange();
         representation.getPersistentState().setLightsOnHour(-1);
         representation.setChangingLightsOffHour(true);
-        ArduinoConfigChangeRepresentation results = EmbeddedStateChangeValidator.validate(representation, validHighHour, validHighMinute, 0, 0); // The values are zero as we're not testing the time.
+        EmbeddedSystemConfigChange results = EmbeddedStateChangeValidator.validate(representation, validHighHour, validHighMinute, 0, 0); // The values are zero as we're not testing the time.
         testValues(representation, results, "LIGHTS ON: hours too small, minutes good");
 
     }
 
     @Test
     public void nonsenseOffTimeValuesHoursGoodMinutesLow() {
-        ArduinoConfigChangeRepresentation representation = new ArduinoConfigChangeRepresentation();
+        EmbeddedSystemConfigChange representation = new EmbeddedSystemConfigChange();
         representation.getPersistentState().setLightsOnMinute(-1);
         representation.setChangingLightsOnMinute(true);
-        ArduinoConfigChangeRepresentation results = EmbeddedStateChangeValidator.validate(representation, validHighHour, validHighMinute, 0, 0); // The values are zero as we're not testing the time.
+        EmbeddedSystemConfigChange results = EmbeddedStateChangeValidator.validate(representation, validHighHour, validHighMinute, 0, 0); // The values are zero as we're not testing the time.
         testValues(representation, results, "LIGHTS OFF: hours good, minutes too small");
 
     }
 
     @Test
     public void nonsenseOffTimeValuesHoursGoodMinutesHigh() {
-        ArduinoConfigChangeRepresentation representation = new ArduinoConfigChangeRepresentation();
+        EmbeddedSystemConfigChange representation = new EmbeddedSystemConfigChange();
        representation.getPersistentState().setLightsOnMinute(60);
         representation.setChangingLightsOnMinute(true);
-        ArduinoConfigChangeRepresentation results = EmbeddedStateChangeValidator.validate(representation, validHighHour, validHighMinute, 0, 0); // The values are zero as we're not testing the time.
+        EmbeddedSystemConfigChange results = EmbeddedStateChangeValidator.validate(representation, validHighHour, validHighMinute, 0, 0); // The values are zero as we're not testing the time.
         testValues(representation, results, "LIGHTS OFF: hours good, minutes too high");
 
     }
 
     @Test
     public void nonsenseOffTimeValuesHoursHighMinutesGood() {
-        ArduinoConfigChangeRepresentation representation = new ArduinoConfigChangeRepresentation();
+        EmbeddedSystemConfigChange representation = new EmbeddedSystemConfigChange();
         representation.getPersistentState().setLightsOffHour(24);
         representation.setChangingLightsOffHour(true);
-        ArduinoConfigChangeRepresentation results = EmbeddedStateChangeValidator.validate(representation, validHighHour, validHighMinute, 0, 0); // The values are zero as we're not testing the time.
+        EmbeddedSystemConfigChange results = EmbeddedStateChangeValidator.validate(representation, validHighHour, validHighMinute, 0, 0); // The values are zero as we're not testing the time.
         testValues(representation, results, "LIGHTS OFF: hours too big, minutes good");
 
     }
 
     @Test
     public void nonsenseOffTimeValuesHoursLowMinutesGood() {
-        ArduinoConfigChangeRepresentation representation = new ArduinoConfigChangeRepresentation();
+        EmbeddedSystemConfigChange representation = new EmbeddedSystemConfigChange();
         representation.getPersistentState().setLightsOffHour(-1);
         representation.setChangingLightsOffHour(true);
-        ArduinoConfigChangeRepresentation results = EmbeddedStateChangeValidator.validate(representation, validHighHour, validHighMinute, 0, 0); // The values are zero as we're not testing the time.
+        EmbeddedSystemConfigChange results = EmbeddedStateChangeValidator.validate(representation, validHighHour, validHighMinute, 0, 0); // The values are zero as we're not testing the time.
         testValues(representation, results, "LIGHTS OFF: hours too small, minutes good");
 
     }

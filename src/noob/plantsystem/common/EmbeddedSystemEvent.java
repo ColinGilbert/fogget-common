@@ -11,7 +11,7 @@ package noob.plantsystem.common;
  */
 
 
-public class ArduinoEvent {
+public class EmbeddedSystemEvent {
     
     public long getUid() {
         return uid;

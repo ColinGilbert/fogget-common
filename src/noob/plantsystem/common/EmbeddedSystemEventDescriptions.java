@@ -12,9 +12,9 @@ import javafx.util.Pair;
  *
  * @author noob
  */
-public class ArduinoEventDescriptions {
+public class EmbeddedSystemEventDescriptions {
 
-    public ArduinoEventDescriptions() {
+    public EmbeddedSystemEventDescriptions() {
         codes2descriptions = new HashMap<>();
         descriptions2codes = new HashMap<>();
 

@@ -11,9 +11,9 @@ import java.util.Random;
  *
  * @author noob
  */
-public class ArduinoProxySaneDefaultsFactory {
+public class EmbeddedSystemProxySaneDefaultsFactory {
 
-    static public ArduinoProxy get() {
+    static public EmbeddedSystemProxy get() {
         PersistentArduinoState persistentState = new PersistentArduinoState();
         persistentState.setUid(new Random().nextLong()); // Invalid UID that can easily be spotted.
         persistentState.setMistingInterval(15000); // Fifteen seconds time between mistings. 
@@ -34,7 +34,7 @@ public class ArduinoProxySaneDefaultsFactory {
         transientState.setCurrentUpperChamberTemperature(23.0f);
         transientState.setCurrentUpperChamberHumidity(65.0f);
         transientState.setTimestamp(System.currentTimeMillis());
-        ArduinoProxy proxy = new ArduinoProxy(); 
+        EmbeddedSystemProxy proxy = new EmbeddedSystemProxy(); 
            proxy.setPersistentState(persistentState);
            proxy.setTransientState(transientState);
         return proxy;
