@@ -10,6 +10,9 @@ package noob.plantsystem.common;
  * @author noob
  */
 public class CommonValues {
+    // Savefiles
+    public final static String stateSaveFileName = "SYSTEMS.SAVE";
+    public final static String descriptionsSaveFileName = "DESCRIPTIONS.SAVE";
     // Connection setup information
     public final static String localhost = "127.0.0.1";
     public final static int mqttPort = 1883;
@@ -24,6 +27,8 @@ public class CommonValues {
     public final static int maxMqttMessagesInFlight = 1000;
     public final static int eventPoolQueueSize = 100;
     public final static int embeddedSystemTimeout = 10000;
+    // MqttClientID for the servlet UI; if we generate a new ID for each connection on the servlet UI, it'll end creating a brand new thread each time.
+    public final static String mqttServletClientID = "FoggetUIClientServlet";
    // The following are used by the localhost TCP connection that assists in transferring the backend information to the web UI.
     public final static String pushProxiesToUI = "pushProxiesToUI";
     public final static String getProxiesForUI = "getProxiesForUI";
@@ -31,7 +36,13 @@ public class CommonValues {
     public final static String getEventsForUI = "getEventsForUI";
     public final static String pushDescriptionsToUI = "pushDescriptionsToUI";
     public final static String getDescriptionsForUI = "getDescriptionsForUI";
-    // Values for technical (domain-specific) data to help us make a sensible system.
+    // Values for technical (domain-specific) data, to help us make a sensible system.
+        public final static int minMistingDuration = 0;
+    public final static int maxMistingDuration = 120;
+        public final static int minMistingInterval = 0;
+    public final static int maxMistingInterval = 900;
+        public final static int minNutrientSolutionPPM = 900;
+    public final static int maxNutrientSolutionPPM = 900;
     public final static double minNutrientSolutionRatio = 0.0;
     public final static double maxNutrientSolutionRatio = 0.01; // The following is due to the toxicity of nutrients in high concentrations towards plants.
     public final static float minHumidity = 0.0f;

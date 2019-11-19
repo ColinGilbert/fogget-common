@@ -5,8 +5,6 @@
  */
 package noob.plantsystem.common;
 
-import java.io.Serializable;
-
 /**
  *
  * @author noob
