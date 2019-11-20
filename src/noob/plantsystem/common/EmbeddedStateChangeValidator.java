@@ -17,8 +17,8 @@ public class EmbeddedStateChangeValidator {
  * Intended usage is for the case in which the backend is told that the user wants to change either only the minute or the hour setting.
  * That means it can then pull up the existing value from already-known information and calculate,
  *  */
-    public static EmbeddedSystemConfigChange validate(EmbeddedSystemConfigChange arg, int currentLightsOnHour, int currentLightsOnMin, int currentLightsOffHour, int currentLightsOffMin) {
-        EmbeddedSystemConfigChange req = arg;
+    public static EmbeddedSystemConfigChangeMemento validate(EmbeddedSystemConfigChangeMemento arg, int currentLightsOnHour, int currentLightsOnMin, int currentLightsOffHour, int currentLightsOffMin) {
+        EmbeddedSystemConfigChangeMemento req = arg;
         boolean settingLightsOnHour = false;
         boolean settingLightsOffHour = false;
         boolean settingLightsOnMinute = false;

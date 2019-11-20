@@ -11,10 +11,10 @@ import java.util.Random;
  *
  * @author noob
  */
-public class EmbeddedSystemProxySaneDefaultsFactory {
+public class EmbeddedSystemStateSaneDefaultsFactory {
 
-    static public EmbeddedSystemProxy get() {
-        PersistentArduinoState persistentState = new PersistentArduinoState();
+    static public EmbeddedSystemCombinedStateMemento get() {
+        PersistentEmbeddedSystemStateMemento persistentState = new PersistentEmbeddedSystemStateMemento();
         persistentState.setUid(new Random().nextLong()); // Invalid UID that can easily be spotted.
         persistentState.setMistingInterval(15000); // Fifteen seconds time between mistings. 
         persistentState.setMistingDuration(2000); // Two seconds misting time
@@ -28,15 +28,15 @@ public class EmbeddedSystemProxySaneDefaultsFactory {
         persistentState.setTargetUpperChamberTemperature(25.0f);
         persistentState.setTargetLowerChamberTemperature(18.0f);
         persistentState.setTargetCO2PPM(12000);
-        TransientArduinoState transientState = new TransientArduinoState();
+        TransientEmbeddedSystemStateMemento transientState = new TransientEmbeddedSystemStateMemento();
         transientState.setCurrentCO2PPM(10000);
         transientState.setCurrentLowerChamberTemperature(18.0f);
         transientState.setCurrentUpperChamberTemperature(23.0f);
         transientState.setCurrentUpperChamberHumidity(65.0f);
         transientState.setTimestamp(System.currentTimeMillis());
-        EmbeddedSystemProxy proxy = new EmbeddedSystemProxy(); 
-           proxy.setPersistentState(persistentState);
-           proxy.setTransientState(transientState);
+        EmbeddedSystemCombinedStateMemento proxy = new EmbeddedSystemCombinedStateMemento(); 
+        proxy.setPersistentState(persistentState);
+        proxy.setTransientState(transientState);
         return proxy;
     }
 }

@@ -9,35 +9,36 @@ package noob.plantsystem.common;
  *
  * @author noob
  */
-public class EmbeddedSystemProxy  {
-    private PersistentArduinoState persistentState = new PersistentArduinoState();
-    private TransientArduinoState transientState = new TransientArduinoState();
+public class EmbeddedSystemCombinedStateMemento {
+
+    private PersistentEmbeddedSystemStateMemento persistentState = new PersistentEmbeddedSystemStateMemento();
+    private TransientEmbeddedSystemStateMemento transientState = new TransientEmbeddedSystemStateMemento();
 
     /**
      * @return the persistentState
      */
-    public PersistentArduinoState getPersistentState() {
+    public PersistentEmbeddedSystemStateMemento getPersistentState() {
         return persistentState;
     }
 
     /**
      * @param persistentState the persistentState to set
      */
-    public void setPersistentState(PersistentArduinoState persistentState) {
+    public void setPersistentState(PersistentEmbeddedSystemStateMemento persistentState) {
         this.persistentState = persistentState;
     }
 
     /**
      * @return the transientState
      */
-    public TransientArduinoState getTransientState() {
+    public TransientEmbeddedSystemStateMemento getTransientState() {
         return transientState;
     }
 
     /**
      * @param transientState the transientState to set
      */
-    public void setTransientState(TransientArduinoState transientState) {
+    public void setTransientState(TransientEmbeddedSystemStateMemento transientState) {
         this.transientState = transientState;
     }
 }

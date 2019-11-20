@@ -10,9 +10,9 @@ package noob.plantsystem.common;
  *
  * @author noob
  */
-public class EmbeddedSystemConfigChange {
+public class EmbeddedSystemConfigChangeMemento {
 
-    private PersistentArduinoState persistentState = new PersistentArduinoState();
+    private PersistentEmbeddedSystemStateMemento persistentState = new PersistentEmbeddedSystemStateMemento();
     private boolean changingMistingInterval = false;
     private boolean changingMistingDuration = false;
     private boolean changingStatusPushInterval = false;
@@ -70,14 +70,14 @@ public class EmbeddedSystemConfigChange {
     /**
      * @return the persistentState
      */
-    public PersistentArduinoState getPersistentState() {
+    public PersistentEmbeddedSystemStateMemento getPersistentState() {
         return persistentState;
     }
 
     /**
      * @param persistentState the persistentState to set
      */
-    public void setPersistentState(PersistentArduinoState persistentState) {
+    public void setPersistentState(PersistentEmbeddedSystemStateMemento persistentState) {
         this.persistentState = persistentState;
     }
 

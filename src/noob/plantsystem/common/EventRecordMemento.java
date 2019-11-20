@@ -9,7 +9,7 @@ package noob.plantsystem.common;
  *
  * @author noob
  */
-public class EventRecord {
+public class EventRecordMemento {
 
     private int event;
     private long timestamp;

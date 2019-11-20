@@ -9,7 +9,7 @@ package noob.plantsystem.common;
  *
  * @author noob
  */
-public class PersistentArduinoState {
+public class PersistentEmbeddedSystemStateMemento {
        
     private long uid;
     private int mistingInterval;

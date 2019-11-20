@@ -9,7 +9,7 @@ package noob.plantsystem.common;
  *
  * @author noob
  */
-public class TransientArduinoState {
+public class TransientEmbeddedSystemStateMemento {
     private long timestamp;
     private long timeLeftUnlocked;
     private float reservoirLevel;
