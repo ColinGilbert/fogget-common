@@ -16,20 +16,20 @@ import java.util.logging.Logger;
  *
  * @author noob
  */
-public class ConnectionUtils {
+public class ConnectionCloser {
 
     static public void closeConnection(PrintWriter tcpOut, Socket socket) {
         try {
             tcpOut.close();
         } catch (Exception ex) {
-            Logger.getLogger(ConnectionUtils.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ConnectionCloser.class.getName()).log(Level.SEVERE, null, ex);
         }
         try {
             socket.close();
         } catch (IOException ex) {
-            Logger.getLogger(ConnectionUtils.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ConnectionCloser.class.getName()).log(Level.SEVERE, null, ex);
         } catch (Exception ex) {
-            Logger.getLogger(ConnectionUtils.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ConnectionCloser.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -37,19 +37,19 @@ public class ConnectionUtils {
         try {
             tcpIn.close();
         } catch (Exception ex) {
-            Logger.getLogger(ConnectionUtils.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ConnectionCloser.class.getName()).log(Level.SEVERE, null, ex);
         }
         try {
             tcpOut.close();
         } catch (Exception ex) {
-            Logger.getLogger(ConnectionUtils.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ConnectionCloser.class.getName()).log(Level.SEVERE, null, ex);
         }
         try {
             socket.close();
         } catch (IOException ex) {
-            Logger.getLogger(ConnectionUtils.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ConnectionCloser.class.getName()).log(Level.SEVERE, null, ex);
         } catch (Exception ex) {
-            Logger.getLogger(ConnectionUtils.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ConnectionCloser.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 }

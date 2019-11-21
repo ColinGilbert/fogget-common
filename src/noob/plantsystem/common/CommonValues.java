@@ -20,10 +20,10 @@ public class CommonValues {
     public final static String mqttBrokerURL = "tcp://" + localhost + ":" + mqttPort;
     public final static String defaultDescription = "This is the default system description. Set one in the box below!";
     public final static String pushEventFromEmbeddedTopic = "pushEventFromEmbedded";
-    public final static String pushStatusFromEmbeddedTopic = "pushStatusFromEmbedded";
+    public final static String pushStatusToBackendTopic = "pushStatusToBackend";
     public final static String pushConfigToEmbeddedTopic = "pushConfigToEmbedded";
     public final static String updateDescriptionRequestTopic = "updateDescriptionRequest";
-    public final static String updateEmbeddedStateRequestTopic = "updateEmbeddedStateRequest";
+    public final static String configEmbeddedRequestTopic = "configEmbeddedRequest";
     public final static int maxMqttMessagesInFlight = 1000;
     public final static int eventPoolQueueSize = 100;
     public final static int embeddedSystemTimeout = 10000;
