@@ -9,7 +9,7 @@ package noob.plantsystem.common;
  *
  * @author noob
  */
-public enum EmbeddedEventType {
+public enum EmbeddedSystemEventType {
     MIST_ON, MIST_OFF,
     MIN_WATER_LEVEL_REACHED, MAX_WATER_LEVEL_REACHED,
     MIN_NUTRIENTS_LEVEL_REACHED, MAX_NUTRIENT_LEVEL_REACHED,

@@ -29,7 +29,6 @@ public class EmbeddedStateChangeValidator {
         final int lightsOnMinute = req.getPersistentState().getLightsOnMinute();
         final int lightsOffHour = req.getPersistentState().getLightsOffHour();
         final int lightsOffMinute = req.getPersistentState().getLightsOffMinute();
-        final long uid = req.getPersistentState().getUid();
         // Validating time
         if (req.hasChanges()) {
             if (req.isChangingLightsOnHour()) {

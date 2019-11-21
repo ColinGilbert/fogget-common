@@ -15,7 +15,7 @@ public class EmbeddedSystemStateSaneDefaultsFactory {
 
     static public EmbeddedSystemCombinedStateMemento get() {
         PersistentEmbeddedSystemStateMemento persistentState = new PersistentEmbeddedSystemStateMemento();
-        persistentState.setUid(new Random().nextLong()); // Invalid UID that can easily be spotted.
+        persistentState.setUid(new Random().nextLong());
         persistentState.setMistingInterval(15000); // Fifteen seconds time between mistings. 
         persistentState.setMistingDuration(2000); // Two seconds misting time
         persistentState.setStatusPushInterval(1000); // One update per second

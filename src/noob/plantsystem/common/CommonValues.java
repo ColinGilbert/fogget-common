@@ -30,18 +30,18 @@ public class CommonValues {
     // MqttClientID for the servlet UI; if we generate a new ID for each connection on the servlet UI, it'll end creating a brand new thread each time.
     public final static String mqttServletClientID = "FoggetUIClientServlet";
    // The following are used by the localhost TCP connection that assists in transferring the backend information to the web UI.
-    public final static String pushProxiesToUI = "pushProxiesToUI";
-    public final static String getProxiesForUI = "getProxiesForUI";
+    public final static String pushSystemsToUI = "pushSystemsToUI";
+    public final static String getSystemsForUI = "getSystemsForUI";
     public final static String pushEventsToUI = "pushEventsToUI";
     public final static String getEventsForUI = "getEventsForUI";
     public final static String pushDescriptionsToUI = "pushDescriptionsToUI";
     public final static String getDescriptionsForUI = "getDescriptionsForUI";
     // Values for technical (domain-specific) data, to help us make a sensible system.
-        public final static int minMistingDuration = 0;
+    public final static int minMistingDuration = 0;
     public final static int maxMistingDuration = 120;
-        public final static int minMistingInterval = 0;
+    public final static int minMistingInterval = 0;
     public final static int maxMistingInterval = 900;
-        public final static int minNutrientSolutionPPM = 900;
+    public final static int minNutrientSolutionPPM = 900;
     public final static int maxNutrientSolutionPPM = 900;
     public final static double minNutrientSolutionRatio = 0.0;
     public final static double maxNutrientSolutionRatio = 0.01; // The following is due to the toxicity of nutrients in high concentrations towards plants.
