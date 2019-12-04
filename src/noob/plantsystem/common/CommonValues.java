@@ -38,9 +38,9 @@ public class CommonValues {
     public final static String getDescriptionsForUI = "getDescriptionsForUI";
     // Values for technical (domain-specific) data, to help us make a sensible system.
     public final static int minMistingDuration = 0;
-    public final static int maxMistingDuration = 120;
+    public final static int maxMistingDuration = 120000;
     public final static int minMistingInterval = 0;
-    public final static int maxMistingInterval = 900;
+    public final static int maxMistingInterval = 900000;
     public final static int minNutrientSolutionPPM = 900;
     public final static int maxNutrientSolutionPPM = 900;
     public final static double minNutrientSolutionRatio = 0.0;
